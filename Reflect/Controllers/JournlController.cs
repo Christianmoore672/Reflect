@@ -32,31 +32,5 @@ namespace Reflect.Controllers
             }
             return Ok(post);
         }
-
-        [HttpPost]
-        public IActionResult Journal(Journal journal)
-        {
-            _journalRepository.Add(journal);
-            return CreatedAtAction("Get", new { id = journal.Id }, journal);
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, Journal journal)
-        {
-            if (id != journal.Id)
-            {
-                return BadRequest();
-            }
-
-            _journalRepository.Update(journal);
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            _journalRepository.Delete(id);
-            return NoContent();
-        }
     }
 }

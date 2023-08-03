@@ -64,3 +64,6 @@ C:\Users\user\workspace\Reflect\Reflect\obj\Debug\net6.0\refint\Reflect.dll
 C:\Users\user\workspace\Reflect\Reflect\obj\Debug\net6.0\Reflect.pdb
 C:\Users\user\workspace\Reflect\Reflect\obj\Debug\net6.0\Reflect.genruntimeconfig.cache
 C:\Users\user\workspace\Reflect\Reflect\obj\Debug\net6.0\ref\Reflect.dll
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\package-lock.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\package.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\public\manifest.json
