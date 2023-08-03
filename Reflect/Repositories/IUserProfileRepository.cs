@@ -2,7 +2,7 @@
 
 namespace Reflect.Repositories
 {
-    public interface IUserRepository
+    public interface IUserProfileRepository
     {
         void Add(UserProfile userProfile);
         UserProfile GetByEmail(string email);

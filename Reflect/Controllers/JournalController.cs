@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Reflect.Repositories;
 using Reflect.Models;
@@ -20,17 +21,6 @@ namespace Reflect.Controllers
         public IActionResult Get()
         {
             return Ok(_journalRepository.GetAll());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var post = _journalRepository.GetById(id);
-            if (post == null)
-            {
-                return NotFound();
-            }
-            return Ok(post);
         }
     }
 }

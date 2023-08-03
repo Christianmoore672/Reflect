@@ -9,11 +9,11 @@ using Reflect.Repositories;
 
 namespace Reflect.Repositories
 {
-    public class JournalRepository : BaseRepository, IJournalRepository
+    public class TagRepository : BaseRepository, ITagRepository
     {
-        public JournalRepository(IConfiguration configuration) : base(configuration) { }
+        public TagRepository(IConfiguration configuration) : base(configuration) { }
 
-        public List<Journal> GetAll()
+        public List<Tag> GetAll()
         {
             using (var conn = Connection)
             {
@@ -21,31 +21,29 @@ namespace Reflect.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT Id, Title, Description, Content, UserProfileId, DateCreated
-                            FROM Journal
-                        ORDER BY DateCreated"
+                          SELECT Id, JournalId, Name, UserProfileId
+                            FROM Tag
+                        ORDER BY Name"
                     ;
 
                     var reader = cmd.ExecuteReader();
 
-                    var journals = new List<Journal>();
+                    var tags = new List<Tag>();
                     while (reader.Read())
                     {
-                        journals.Add(new Journal()
+                        tags.Add(new Tag()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            Title = DbUtils.GetString(reader, "Title"),
-                            Description = DbUtils.GetString(reader, "Description"),
-                            Content = DbUtils.GetString(reader, "Content"),
+                            JournalId = DbUtils.GetInt(reader, "JournalId"),
+                            Name = DbUtils.GetString(reader, "Name"),
                             UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
-                            DateCreated = DbUtils.GetDateTime(reader, "DateCreated"),
                         }
                         );
                     }
 
                     reader.Close();
 
-                    return journals;
+                    return tags;
                 }
             }
         }

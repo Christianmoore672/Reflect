@@ -9,11 +9,11 @@ using Reflect.Repositories;
 
 namespace Reflect.Repositories
 {
-    public class JournalRepository : BaseRepository, IJournalRepository
+    public class ResearchTopicRepository : BaseRepository, IResearchTopicRepository
     {
-        public JournalRepository(IConfiguration configuration) : base(configuration) { }
+        public ResearchTopicRepository(IConfiguration configuration) : base(configuration) { }
 
-        public List<Journal> GetAll()
+        public List<ResearchTopic> GetAll()
         {
             using (var conn = Connection)
             {
@@ -21,23 +21,23 @@ namespace Reflect.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT Id, Title, Description, Content, UserProfileId, DateCreated
-                            FROM Journal
+                          SELECT Id, UserProfileId, FolderTitle, Note, Link, DateCreated
+                            FROM ResearchTopic
                         ORDER BY DateCreated"
                     ;
 
                     var reader = cmd.ExecuteReader();
 
-                    var journals = new List<Journal>();
+                    var researchTopics = new List<ResearchTopic>();
                     while (reader.Read())
                     {
-                        journals.Add(new Journal()
+                        researchTopics.Add(new ResearchTopic()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            Title = DbUtils.GetString(reader, "Title"),
-                            Description = DbUtils.GetString(reader, "Description"),
-                            Content = DbUtils.GetString(reader, "Content"),
                             UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
+                            FolderTitle = DbUtils.GetString(reader, "FolderTitle"),
+                            Note = DbUtils.GetString(reader, "Note"),
+                            Link = DbUtils.GetString(reader, "Link"),
                             DateCreated = DbUtils.GetDateTime(reader, "DateCreated"),
                         }
                         );
@@ -45,7 +45,7 @@ namespace Reflect.Repositories
 
                     reader.Close();
 
-                    return journals;
+                    return researchTopics;
                 }
             }
         }

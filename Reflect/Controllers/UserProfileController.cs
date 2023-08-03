@@ -11,8 +11,8 @@ namespace Reflect.Controllers
     public class UserProfileController : ControllerBase
     {
         //private readonly IUserProfileRepository _userProfileRepository;
-        private readonly IUserRepository _userRepository;
-        public UserProfileController(IUserRepository userRepository)
+        private readonly IUserProfileRepository _userRepository;
+        public UserProfileController(IUserProfileRepository userRepository)
         {
             //_userProfileRepository = userProfileRepository;
             _userRepository = userRepository;

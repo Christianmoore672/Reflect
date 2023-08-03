@@ -4,9 +4,9 @@ using Reflect.Utils;
 
 namespace Reflect.Repositories
 {
-    public class UserRepository : BaseRepository, IUserRepository
+    public class UserProfileRepository : BaseRepository, IUserProfileRepository
     {
-        public UserRepository(IConfiguration configuration) : base(configuration) { }
+        public UserProfileRepository(IConfiguration configuration) : base(configuration) { }
 
         public UserProfile GetByEmail(string email)
         {

@@ -9,11 +9,11 @@ namespace Reflect.Models
         public int UserProfileId { get; set; }
 
         [Required]
-        public string FolderTitle { get; set; }
+        public string? FolderTitle { get; set; }
 
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
-        public string Link { get; set; }
+        public string? Link { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }
