@@ -22,5 +22,12 @@ namespace Reflect.Controllers
         {
             return Ok(_journalRepository.GetAll());
         }
+
+        [HttpPost]
+        public IActionResult Add(Journal journal)
+        {
+            _journalRepository.Add(journal);
+            return CreatedAtAction("Get", new { id = journal.Id }, journal);
+        }
     }
 }

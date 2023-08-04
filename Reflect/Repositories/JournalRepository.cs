@@ -49,5 +49,30 @@ namespace Reflect.Repositories
                 }
             }
         }
+        public void Add(Journal journal) //saves a NEW post. Like an insert. 
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO Journal ( Title, Description, Content, UserProfileId, DateCreated)
+                        OUTPUT INSERTED.ID
+                        VALUES ( @Title, @Description, @Content, @UserProfileId, @DateCreated)";
+
+
+                    DbUtils.AddParameter(cmd, "@Title", journal.Title);
+                    DbUtils.AddParameter(cmd, "@Description", journal.Description);
+                    DbUtils.AddParameter(cmd, "@Content", journal.Content);
+                    DbUtils.AddParameter(cmd, "@UserProfileId", journal.UserProfileId);
+                    DbUtils.AddParameter(cmd, "@DateCreated", journal.DateCreated);
+
+
+                    journal.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+
+        }
     }
 }

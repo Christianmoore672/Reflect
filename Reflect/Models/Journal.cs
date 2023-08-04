@@ -9,16 +9,16 @@ namespace Reflect.Models
         public int Id { get; set; }
 
         [Required]
-        public string? Title { get; set; }
+        public string Title { get; set; }
 
         [Required]
-        public string? Description { get; set; }
+        public string Description { get; set; }
 
         [Required]
-        public string? Content { get; set; }
+        public string Content { get; set; }
 
         public int UserProfileId { get; set; }
-        public UserProfile? UserProfile { get; set; }
+        public UserProfile UserProfile { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }
