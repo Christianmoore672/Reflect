@@ -8,6 +8,76 @@ namespace Reflect.Repositories
     {
         public UserProfileRepository(IConfiguration configuration) : base(configuration) { }
 
+        public List<UserProfile> GetAll()
+        {
+            List<UserProfile> userProfiles = new List<UserProfile>();
+
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        SELECT UserProfile.Id, UserProfile.Name, UserProfile.Email, UserProfile.ImageUrl
+                          FROM UserProfile";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            UserProfile userProfile = new UserProfile()
+                            {
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                Name = DbUtils.GetString(reader, "Name"),
+                                Email = DbUtils.GetString(reader, "Email"),
+                                ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+
+                            };
+
+                            userProfiles.Add(userProfile);
+                        }
+                    }
+                }
+            }
+
+            return userProfiles;
+        }
+
+        public UserProfile GetById(int id)
+        {
+            UserProfile userProfile = null;
+
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        SELECT UserProfile.Id, UserProfile.Name, UserProfile.Email, UserProfile.ImageUrl
+                          FROM UserProfile
+                        WHERE UserProfile.Id = @Id";
+
+                    DbUtils.AddParameter(cmd, "@Id", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            userProfile = new UserProfile()
+                            {
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                Name = DbUtils.GetString(reader, "Name"),
+                                Email = DbUtils.GetString(reader, "Email"),
+                                ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+
+                            };
+                        }
+                    }
+                }
+            }
+
+            return userProfile;
+        }
         public UserProfile GetByEmail(string email)
         {
             using (var conn = Connection)

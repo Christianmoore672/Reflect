@@ -20,11 +20,32 @@ namespace Reflect.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_journalRepository.GetAll());
+            return Ok(_journalRepository.GetAllJournals());
+        }
+
+        [HttpGet("GetUsersJournals/{id}")]
+        public IActionResult Get(int id)
+        {
+            List<Journal> journals = _journalRepository.GetJournalsByUserProfileId(id);
+            if (journals == null)
+            {
+                return NotFound();
+            }
+            return Ok(journals);
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            Journal journal = _journalRepository.GetJournalById(id);
+            if (journal == null)
+            {
+                return NotFound();
+            }
+            return Ok(journal);
         }
 
         [HttpPost]
-        public IActionResult Add(Journal journal)
+        public IActionResult Post(Journal journal)
         {
             _journalRepository.Add(journal);
             return CreatedAtAction("Get", new { id = journal.Id }, journal);

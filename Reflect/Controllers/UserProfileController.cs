@@ -10,34 +10,48 @@ namespace Reflect.Controllers
     [ApiController]
     public class UserProfileController : ControllerBase
     {
-        //private readonly IUserProfileRepository _userProfileRepository;
-        private readonly IUserProfileRepository _userRepository;
-        public UserProfileController(IUserProfileRepository userRepository)
+        private readonly IUserProfileRepository _userProfileRepository;
+        //private readonly IUserRepository _userRepository;
+
+        public UserProfileController(
+            //IUserRepository userRepository,
+            IUserProfileRepository userProfileRepository
+        )
         {
-            //_userProfileRepository = userProfileRepository;
-            _userRepository = userRepository;
+            _userProfileRepository = userProfileRepository;
+            //_userRepository = userRepository;
+        }
+
+        // GET: api/<UserProfileController>
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_userProfileRepository.GetAll());
+        }
+
+        // GET: api/<UserProfileController>/5 - getById/details
+        [HttpGet("{id}")]
+        public ActionResult Get(int id)
+        {
+            var userProfile = _userProfileRepository.GetById(id);
+            if (userProfile == null)
+            {
+                return NotFound();
+            }
+            return Ok(userProfile);
         }
 
         [HttpGet("GetByEmail")]
         public IActionResult GetByEmail(string email)
         {
-            var user = _userRepository.GetByEmail(email);
+            var user = _userProfileRepository.GetByEmail(email);
 
-            if (email == null || user == null)
+            if (user == null)
             {
                 return NotFound();
             }
             return Ok(user);
         }
 
-        [HttpPost]
-        public IActionResult Post(UserProfile userProfile)
-        {
-            _userRepository.Add(userProfile);
-            return CreatedAtAction(
-                "GetByEmail",
-                new { email = userProfile.Email },
-                userProfile);
-        }
     }
 }
