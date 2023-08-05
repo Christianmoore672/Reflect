@@ -50,5 +50,24 @@ namespace Reflect.Controllers
             _journalRepository.Add(journal);
             return CreatedAtAction("Get", new { id = journal.Id }, journal);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _journalRepository.Delete(id);
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Journal journal)
+        {
+            if (id != journal.Id)
+            {
+                return BadRequest();
+            }
+            journal.DateCreated = DateTime.Now;
+            _journalRepository.Update(journal);
+            return NoContent();
+        }
     }
 }

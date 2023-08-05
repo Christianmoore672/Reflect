@@ -166,5 +166,48 @@ namespace Reflect.Repositories
                 }
             }
         }
+
+        public void Delete(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Journal WHERE Id = @Id";
+                    DbUtils.AddParameter(cmd, "@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Update(Journal journal)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        UPDATE Journal
+                           SET Title = @Title,
+                               Description = @Description,
+                               Content = @Content,
+                               UserProfileId = @UserProfileId,
+                               DateCreated = @DateCreated
+
+                         WHERE Id = @Id";
+
+                    DbUtils.AddParameter(cmd, "@Title", journal.Title);
+                    DbUtils.AddParameter(cmd, "@Description", journal.Content);
+                    DbUtils.AddParameter(cmd, "@Content", journal.Content);
+                    DbUtils.AddParameter(cmd, "@UserProfileId", journal.UserProfileId);
+                    DbUtils.AddParameter(cmd, "@DateCreated", journal.DateCreated);
+                    DbUtils.AddParameter(cmd, "@Id", journal.Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

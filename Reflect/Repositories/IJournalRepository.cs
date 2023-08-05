@@ -11,5 +11,9 @@ namespace Reflect.Repositories
 
         void Add(Journal journal);
 
+        void Delete(int id);
+
+        void Update(Journal journal);
+
     }
 }
