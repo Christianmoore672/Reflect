@@ -3,60 +3,113 @@
   background-color: #76857c;
 }
 
-.reflect {
-  font-size: 50px;
+.r {
+  font-size: 70px;
   position: absolute;
   top: 20%;
-  left: -25%;
-  
-  /* shadow: 1px 4px 4px gray; */
+  left: 58%;
+  rotate: 50deg;
+  text-shadow: 2px 8px 8px #604c4c;
 }
+.e {
+  font-size: 70px;
+  position: absolute;
+  top: 30%;
+  left: 62%;
+  rotate: 55deg;
+  text-shadow: 2px 8px 8px #604c4c;
+}
+.f {
+  font-size: 70px;
+  position: absolute;
+  top: 40%;
+  left: 65%;
+  rotate: 60deg;
+  text-shadow: 2px 8px 8px #604c4c;
+}
+.l {
+  font-size: 70px;
+  position: absolute;
+  top: 50%;
+  left: 67%;
+  rotate: 70deg;
+  text-shadow: 2px 8px 8px #604c4c;
+}
+.ee {
+  font-size: 70px;
+  position: absolute;
+  top: 60%;
+  left: 68.5%;
+  rotate: 75deg;
+  text-shadow: 2px 8px 8px #604c4c;
+}
+.c {
+  font-size: 70px;
+  position: absolute;
+  top: 70%;
+  left: 69.5%;
+  rotate: 80deg;
+  text-shadow: 2px 8px 8px #604c4c;
+}
+.t {
+  font-size: 70px;
+  position: absolute;
+  top: 80%;
+  left: 70%;
+  rotate: 85deg;
+  text-shadow: 2px 8px 8px #604c4c;
+}
+
 .container {
   background-color: #76857c;
-  position: absolute;
-  top: 0%;
-  left: 50%;
+  /* position: absolute; */
+  /* top: 1%; */
+  /* left: 10%; */
+  max-width: 100%; 
   height: auto;
 }
 
 .home {
   background-color: #76857c;
-  height: 1000px;
+  height: 800px;
   
 }
 
 .journal_Button {
   position: absolute;
-  top: 15%;
-  left: 20%; 
+  top: 18%;
+  left: 40%; 
   text-align: center;
   height: 200px;
   width: 200px;
   font-size: 20px;
   border-radius: 100px;
   transform: translate(-50%, -50%);
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
 }
 .trends_Button {
   position: absolute;
-  top: 25%;
-  left: 15%; 
+  top: 42%;
+  left: 25%; 
   text-align: center;
   height: 200px;
   width: 200px;
   font-size: 20px;
   border-radius: 100px;
   transform: translate(-50%, -50%);
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
 }
 .research_Button {
   position: absolute;
-  top: 35%;
-  left: 20%; 
+  top: 80%;
+  left: 25%; 
   text-align: center;
   height: 200px;
   width: 200px;
   font-size: 20px;
   border-radius: 100px;
   transform: translate(-50%, -50%);
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
 }
 
 /* .App {
