@@ -1,8 +1,67 @@
+/* Homepage */
+.navBar {
+  background-color: #76857c;
+}
 
+.reflect {
+  font-size: 50px;
+  position: absolute;
+  top: 20%;
+  left: -25%;
+  
+  /* shadow: 1px 4px 4px gray; */
+}
+.container {
+  background-color: #76857c;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  height: auto;
+}
 
+.home {
+  background-color: #76857c;
+  height: 1000px;
+  
+}
 
-.App {
+.journal_Button {
+  position: absolute;
+  top: 15%;
+  left: 20%; 
   text-align: center;
+  height: 200px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 100px;
+  transform: translate(-50%, -50%);
+}
+.trends_Button {
+  position: absolute;
+  top: 25%;
+  left: 15%; 
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 100px;
+  transform: translate(-50%, -50%);
+}
+.research_Button {
+  position: absolute;
+  top: 35%;
+  left: 20%; 
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 100px;
+  transform: translate(-50%, -50%);
+}
+
+/* .App {
+  text-align: center;
+  background-color: #76857c;
 }
 
 .App-logo {
@@ -38,4 +97,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

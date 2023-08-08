@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink as RRNavLink } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import { logout } from '../Managers/UserProfileManger';
 
 export default function Header({isLoggedIn, setIsLoggedIn}) {
@@ -17,8 +9,8 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">Reflect</NavbarBrand>
+      <Navbar className="navBar" light expand="md">
+        <NavbarBrand tag={RRNavLink} to="/">REFLECT</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
