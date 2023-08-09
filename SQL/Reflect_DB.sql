@@ -78,7 +78,7 @@ SET IDENTITY_INSERT [Journal] ON
 INSERT INTO [Journal]
   ([Id], [Title], [Description], [Content], [UserProfileId], [DateCreated])
 VALUES
-  (1, 'Test Journal', 'This is a Test', null, 1, '07-28-2023');
+  (1, 'Test Journal', 'This is a Test', 'Test test test tests test test test', 1, '07-28-2023');
 SET IDENTITY_INSERT [Journal] OFF
 
 SET IDENTITY_INSERT [Tag] ON

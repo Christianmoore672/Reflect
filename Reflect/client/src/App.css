@@ -1,10 +1,16 @@
 /* Homepage */
+.home {
+  background-color: #76857c;
+  height: 800px;
+  
+}
 .navBar {
   background-color: #76857c;
 }
 
 .r {
   font-size: 70px;
+  z-index: 2;
   position: absolute;
   top: 20%;
   left: 58%;
@@ -13,6 +19,7 @@
 }
 .e {
   font-size: 70px;
+  z-index: 2;
   position: absolute;
   top: 30%;
   left: 62%;
@@ -21,6 +28,7 @@
 }
 .f {
   font-size: 70px;
+  z-index: 2;
   position: absolute;
   top: 40%;
   left: 65%;
@@ -29,6 +37,7 @@
 }
 .l {
   font-size: 70px;
+  z-index: 2;
   position: absolute;
   top: 50%;
   left: 67%;
@@ -37,6 +46,7 @@
 }
 .ee {
   font-size: 70px;
+  z-index: 2;
   position: absolute;
   top: 60%;
   left: 68.5%;
@@ -45,6 +55,7 @@
 }
 .c {
   font-size: 70px;
+  z-index: 2;
   position: absolute;
   top: 70%;
   left: 69.5%;
@@ -53,6 +64,7 @@
 }
 .t {
   font-size: 70px;
+  z-index: 2;
   position: absolute;
   top: 80%;
   left: 70%;
@@ -69,13 +81,20 @@
   height: auto;
 }
 
-.home {
+ .child2 {
+  position: absolute;
+ 
+ }
+
+.home_gif {
   background-color: #76857c;
   height: 800px;
-  
+  z-index: 1;
+  transform: translate(-3%, -1%);
 }
 
 .journal_Button {
+  z-index: 2;
   position: absolute;
   top: 18%;
   left: 40%; 
@@ -88,6 +107,7 @@
   box-shadow: 5px 4px 4px rgb(55, 52, 52);
 }
 .trends_Button {
+  z-index: 2;
   position: absolute;
   top: 42%;
   left: 25%; 
@@ -100,6 +120,7 @@
   box-shadow: 5px 4px 4px rgb(55, 52, 52);
 }
 .research_Button {
+  z-index: 2;
   position: absolute;
   top: 80%;
   left: 25%; 
@@ -112,42 +133,4 @@
   box-shadow: 5px 4px 4px rgb(55, 52, 52);
 }
 
-/* .App {
-  text-align: center;
-  background-color: #76857c;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
