@@ -40,7 +40,7 @@ export const ResearchTopicEdit = () =>
 
        return editResearchTopic(researchTopicToEdit)
         .then(() => {
-            navigate("research")
+            navigate("/research")
         })
 };
 

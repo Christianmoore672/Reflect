@@ -100,7 +100,7 @@ namespace Reflect.Repositories
                                u.Name, u.Email, u.ImageUrl
                         FROM ResearchTopic r
                             LEFT JOIN UserProfile u ON r.UserProfileId = u.Id
-                        ORDER BY DateCreated"
+                        WHERE r.id = @id"
                 ;
 
                     cmd.Parameters.AddWithValue("@id", id);
@@ -110,7 +110,16 @@ namespace Reflect.Repositories
 
                     if (reader.Read())
                     {
-                        researchTopic = new ResearchTopic();
+                        researchTopic = new ResearchTopic()
+                        {
+                            Id = DbUtils.GetInt(reader, "Id"),
+                            UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
+                            FolderTitle = DbUtils.GetString(reader, "FolderTitle"),
+                            Note = DbUtils.GetString(reader, "Note"),
+                            Link = DbUtils.GetString(reader, "Link"),
+                            DateCreated = DbUtils.GetDateTime(reader, "DateCreated"),
+
+                        };
 
                     }
 

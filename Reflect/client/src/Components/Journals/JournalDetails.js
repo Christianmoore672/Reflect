@@ -22,9 +22,9 @@ export const JournalDetails = () => {
 
     const editButton = () => {
       if (journal.userProfileId === reflectUserObject.id) {
-        return <>
-        <button onClick={() => navigate(`/journal/edit/${journal.id}`)} >Edit</button>
-        </>
+  
+        navigate(`/journal/edit/${journal.id}`)
+       
     }};
 
     const handleDelete = () => {
@@ -43,10 +43,8 @@ export const JournalDetails = () => {
 
     const deleteButton = () => {
       if (journal.userProfileId === reflectUserObject.id) {
-          return <button onClick={ alertClick } >Delete</button>}
-
-          else {
-            return ""
+          alertClick()
+          
           }}
 
 return (
@@ -64,8 +62,8 @@ return (
       <img className="photo" src={journal.imageUrl} alt="Not found" />
 
       <h6 className="date_User">
-        Posted on: {journal.DateCreated}
-        Created by: {journal.userProfile?.Name}
+        Created on: {journal.DateCreated}
+        {/* Created by: {journal.userProfile?.name} */}
       </h6>
   </div> 
 

@@ -18,12 +18,12 @@ namespace Reflect.Models
         public string Content { get; set; }
 
         public int UserProfileId { get; set; }
-        public UserProfile UserProfile { get; set; }
+        public UserProfile? UserProfile { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }
 
-        public List<Tag> Tags { get; set; } = new List<Tag>();
+        public List<Tag>? Tags { get; set; } = new List<Tag>();
 
     }
 }

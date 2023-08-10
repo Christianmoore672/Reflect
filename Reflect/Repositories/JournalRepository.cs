@@ -121,7 +121,7 @@ namespace Reflect.Repositories
                                u.Name, u.Email, u.ImageUrl
                         FROM Journal j
                             LEFT JOIN UserProfile u ON j.UserProfileId = u.Id
-                        ORDER BY DateCreated"
+                         WHERE j.id = @id"
                 ;
 
                     cmd.Parameters.AddWithValue("@id", id);
@@ -131,7 +131,23 @@ namespace Reflect.Repositories
 
                     if (reader.Read())
                     {
-                        journal = new Journal();
+                        journal = new Journal()
+                        {
+                            Id = id,
+                            Title = DbUtils.GetString(reader, "Title"),
+                            Description = DbUtils.GetString(reader, "Description"),
+                            Content = DbUtils.GetString(reader, "Content"),
+                            UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
+                            DateCreated = DbUtils.GetDateTime(reader, "DateCreated"),
+                            UserProfile = new UserProfile()
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("UserProfileId")),
+                                Name = reader.GetString(reader.GetOrdinal("Name")),
+                                Email = reader.GetString(reader.GetOrdinal("Email")),
+                                ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+                            }
+
+                        };
            
                     }
 
@@ -159,7 +175,7 @@ namespace Reflect.Repositories
                     cmd.Parameters.AddWithValue("@Title", journal.Title);
                     cmd.Parameters.AddWithValue("@Description", journal.Description);
                     cmd.Parameters.AddWithValue("@Content", journal.Content);
-                    cmd.Parameters.AddWithValue("@DateCreated", journal.DateCreated);
+                    cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
                     cmd.Parameters.AddWithValue("@UserProfileId", journal.UserProfileId);
 
                     journal.Id = (int)cmd.ExecuteScalar();

@@ -29,7 +29,7 @@ const JournalList = () => {
             <strong>{journal.title}</strong>
           </p>
           <p>{journal.caption}</p>
-          <button onClick={() => navigate("/journal/details")}className="more_Button">More...</button>
+          <button onClick={() => navigate(`/journal/${journal.id}`)} className="more_Button"> More... </button>
         </div>
       ))}
       </div>

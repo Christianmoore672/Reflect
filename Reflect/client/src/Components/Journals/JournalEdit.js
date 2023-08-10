@@ -9,7 +9,7 @@ export const JournalEdit = () =>
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
-    const { journalId } = useParams()
+    const { id } = useParams()
 
     const [journal, update] = useState({
         title: "",
@@ -22,17 +22,17 @@ export const JournalEdit = () =>
     })
     
     useEffect(() => {
-        getJournalById(journalId)
+        getJournalById(id)
         .then((journalArray) => {
             update(journalArray)
         })
-    }, [journalId]);
+    }, [id]);
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
         const journalToEdit = {
-            Id: parseInt(journalId),
+            Id: parseInt(id),
             Title: journal.title,
             Description: journal.description,
             Content: journal.content,

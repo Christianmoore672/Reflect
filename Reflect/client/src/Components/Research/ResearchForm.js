@@ -43,7 +43,7 @@ return (
         <h2 className="research_Form__Title">Add New Research Folder</h2>
         <fieldset>
             <div className="research_Form_Group">
-                <label htmlFor="Title">Folder Title:</label>
+                <label htmlFor="folderitle">Folder Title:</label>
                 <input
                     required autoFocus
                     type="text"
@@ -52,7 +52,7 @@ return (
                     onChange={
                         (evt) => {
                             const copy = {...researchTopic}
-                            copy.FolderTitle = evt.target.value
+                            copy.folderTitle = evt.target.value
                         update(copy)
                         }
                     } />
@@ -99,7 +99,7 @@ return (
     </form>
     <button className="submit_Journal"
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
-            Submit Journal
+            Create Folder
         </button>
 </div>)
 
