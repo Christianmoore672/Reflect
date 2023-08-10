@@ -1,30 +1,20 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Card, CardBody, CardImg, CardText, CardTitle } from "reactstrap";
-import { Link } from "react-router-dom";
 import { deleteJournal, getJournalById } from "../../Managers/JournalManager";
-import TagList from "../Tags/TagList";
 import "./Journals.css";
 
 export const JournalDetails = () => {
     const [journal, setJournal] = useState();
-    const [showTags, setShowTags] = useState(false);
     const { id } = useParams();
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
     
-    /* toggle function for controlling the visibility of the comment list:*/
-    const toggleTags = () => {
-      setShowTags((prevState) => !prevState);
-    };
-    
-    
-  
+// not reading
     useEffect(() => {
       getJournalById(id).then(setJournal);
-    }, []);
+    }, [id]);
   
     if (!journal) {
       return null;
@@ -33,18 +23,9 @@ export const JournalDetails = () => {
     const editButton = () => {
       if (journal.userProfileId === reflectUserObject.id) {
         return <>
-        <Button color="warning" onClick={() => navigate(`/journal/edit/${journal.id}`)}>Edit</Button>
+        <button onClick={() => navigate(`/journal/edit/${journal.id}`)} >Edit</button>
         </>
-    }}
-
-   const alertClick = () => {
-    const confirmBox = window.confirm("Do you really want to delete this journal?")
-    if (confirmBox === true){
-      handleDelete() }
-    }
-   
-
-
+    }};
 
     const handleDelete = () => {
       deleteJournal(journal.id).then(() => {
@@ -52,10 +33,17 @@ export const JournalDetails = () => {
       });
     };
 
+   const alertClick = () => {
+    const confirmBox = window.confirm("Are you sure you want to delete this journal?")
+    if (confirmBox === true){
+      handleDelete() }
+    };
+  
+
 
     const deleteButton = () => {
       if (journal.userProfileId === reflectUserObject.id) {
-          return <button onClick={ alertClick } className="journal_delete">Delete</button>}
+          return <button onClick={ alertClick } >Delete</button>}
 
           else {
             return ""
@@ -63,33 +51,31 @@ export const JournalDetails = () => {
 
 return (
   <article className="journal_Details_Card">
-     <div>
-  <Card  className="all_Journal_Details" style={{ width: '18rem' }} key={journal.id}>
-      <CardImg variant="top" src={journal?.imageUrl} alt="Not found" />
-      <CardBody>
-        <CardTitle><b>Title: {journal.title}</b></CardTitle>
-        <CardText>
-        {journal.description}
-        </CardText><CardText>
-        {journal.content}
-        </CardText>
-        <CardText>
-          Posted on: {journal.DateCreated}
-        </CardText>
-        <CardText>
-        Created by: {journal?.userProfile?.Name}
-        </CardText>
-      </CardBody> 
-      {editButton()}
-      {deleteButton()}
-  </Card> 
+  
 
+  <div  className="all_Journal_Details" key={journal.id}>
+
+      <div className="journal_Content">
+        <h2> <b>Title: {journal.title}</b> </h2>
+        <h3> {journal.description} </h3>
+        <h4> {journal.content} </h4>
+      </div> 
+
+      <img className="photo" src={journal.imageUrl} alt="Not found" />
+
+      <h6 className="date_User">
+        Posted on: {journal.DateCreated}
+        Created by: {journal.userProfile?.Name}
+      </h6>
+  </div> 
+
+
+
+<div className="edit_Delete">
+        <button className="journal_Delete" onClick= {editButton}> Edit </button>
+        <button className="journal_Edit" onClick= {deleteButton}> Delete </button> 
 </div>
-      <Button><Link to={`/journals/${journal.id}/tags`}>Add Tag</Link></Button>
-      {showTags && <TagList />}
-      <Button onClick={toggleTags}>
-        {showTags ? "Hide Tags" : "View Tags"}
-      </Button>
+
 </article>   
 );
 };

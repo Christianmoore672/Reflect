@@ -5,6 +5,11 @@ import Reflect from "./HomePage";
 import TagList from "./Tags/TagList";
 import ResearchList from "./Research/ResearchList";
 import { JournalDetails } from "./Journals/JournalDetails";
+import { JournalForm } from "./Journals/JournalForm";
+import { ResearchForm } from "./Research/ResearchForm";
+import { JournalEdit } from "./Journals/JournalEdit";
+import { ResearchDetails } from "./Research/ResearchDetails";
+import { ResearchTopicEdit } from "./Research/ResearchEdit";
 
 export default function ApplicationViews() {
 
@@ -12,10 +17,14 @@ export default function ApplicationViews() {
       <Routes>
         <Route path="/" element={<Reflect />} />
         <Route path="/journals" element={<JournalList />} />
-        <Route path="/journal/details" element={<JournalDetails />} />
-        <Route path="/trends" element={<TagList />} />
         <Route path="/research" element={<ResearchList />} />
-        {/* <Route path="/research/add" element={<ResearchForm />} /> */}
+        <Route path="/trends" element={<TagList />} />
+        <Route path="/journal/details" element={<JournalDetails />} />
+        <Route path="/research/details" element={<ResearchDetails />} />
+        <Route path="/journal/add" element={<JournalForm />} />
+        <Route path="/research/add" element={<ResearchForm />} />
+        <Route path="/journal/edit/:journal.Id" element={<JournalEdit />} />
+        <Route path="/research/edit/:researchTopic.Id" element={<ResearchTopicEdit />} />
       </Routes>
    );
 

@@ -23,7 +23,7 @@ namespace Reflect.Controllers
             return Ok(_tagRepository.GetAllTags());
 
         }
-        [HttpGet("GetUsersTags/{id}")]
+        [HttpGet("GetUsersTags{id}")]
         public IActionResult Get(int id)
         {
             List<Tag> tags = _tagRepository.GetTagsByUserProfileId(id);
@@ -34,7 +34,7 @@ namespace Reflect.Controllers
             return Ok(tags);
         }
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetTagsForJournal(int id)
         {
             Tag tag = _tagRepository.GetTagById(id);
             if (tag == null)

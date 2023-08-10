@@ -23,9 +23,9 @@ const ResearchList = () => {
       <button onClick={() => navigate("/research/add")} className="add_Research_Button">+ New Folder</button>
       <div className="all_Research">
       {researchTopics.map((researchTopic) => (
-        <div key={researchTopic.id} className="researchTopic">
+        <div key={researchTopic.id} onClick={() => navigate("/research/edit/:researchTopic.Id")} className="researchTopic">
           <p>
-            <strong onClick={() => navigate("/research/details")}>{researchTopic.folderTitle}</strong>
+            <strong>{researchTopic.folderTitle}</strong>
             {/* <button className="more_Button">More...</button> */}
           </p>
           

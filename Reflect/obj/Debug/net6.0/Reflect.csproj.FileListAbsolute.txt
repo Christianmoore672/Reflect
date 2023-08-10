@@ -67,3 +67,14 @@ C:\Users\user\workspace\Reflect\Reflect\obj\Debug\net6.0\ref\Reflect.dll
 C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\package-lock.json
 C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\package.json
 C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\public\manifest.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\computer.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\face.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair2.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair3.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair4.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair5.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair6.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair7.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\seated.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\swing.json

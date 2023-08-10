@@ -22,6 +22,7 @@
     background-color: #a5c9b5;
     margin: 10px;
     padding: 10px;
+    cursor: pointer;
 
   }
 
@@ -29,3 +30,78 @@
     margin: 10px;
   }
 
+  
+  /* Journal Details */
+  .research_Details_Card {
+    background-color: #b1bcb5;
+    width: 1000px;
+    height: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 250px;
+  }
+
+  .all_Research_Details {
+    background-color: #c9d2cd;
+    margin: 10px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: 450px;
+    margin-top: 15px;
+  }
+
+  .journal_Content {
+
+  }
+
+  .photo {
+
+  }
+
+  .date_User {
+
+  }
+
+  .research_Delete {
+    background-color: #f3933f;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+  .research_Edit {
+    background-color: #f3933f;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  
+  .edit_Delete {
+  margin-left: 810px;
+  }
+
+  /* Add Journal Form */
+  .research_Form_Container {
+    background-color: #b1bcb5;
+    width: 1000px;
+    height: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 250px;
+  }
+  .research_Form {
+    background-color: #c9d2cd;
+    margin: 10px;
+    border-radius: 5px;
+    height: 450px;
+    margin-top: 15px;
+    padding: 15px;
+  }
+
+  .research_Form_Group {
+    margin: 5px;
+  }
+  .research_Note {
+    height: 300px;
+    width: 500px;
+  }

@@ -1,13 +1,14 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { addResearchTopics } from "../../Managers/ResearchManager";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { editResearchTopic, getResearchTopicById } from "../../Managers/ResearchManager";
 
 
-export const ResearchForm = () => {
+export const ResearchTopicEdit = () => 
+{
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
-
+    const { researchTopicId } = useParams()
 
     const [researchTopic, update] = useState({
         userProfileId: reflectUserObject.id,
@@ -18,24 +19,31 @@ export const ResearchForm = () => {
 
     })
     
+    useEffect(() => {
+        getResearchTopicById(researchTopicId)
+        .then((researchTopicArray) => {
+            update(researchTopicArray)
+        })
+    }, [researchTopicId]);
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        const researchTopicToSendToAPI = {
+        const researchTopicToEdit = {
+            Id: parseInt(researchTopicId),
             UserProfileId: reflectUserObject.id,
             FolderTitle: researchTopic.folderTitle,
             Note: researchTopic.note,
             Link: researchTopic.link,
             DateCreated: new Date().toISOString
-        };
+        }
 
-        return addResearchTopics(researchTopicToSendToAPI)
+       return editResearchTopic(researchTopicToEdit)
         .then(() => {
-        navigate("/research")
+            navigate("research")
         })
-
 };
+
 
 return (
     <div className="research_Form_Container">
@@ -61,7 +69,7 @@ return (
         <fieldset>
             <div className="research_Form_Group">
                 <label htmlFor="note">Notes:</label>
-                <input 
+                <textarea  className="research_Note"
                     required autoFocus
                     type="text"
                     id="note"
