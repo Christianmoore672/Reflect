@@ -8,7 +8,7 @@ export const ResearchTopicEdit = () =>
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
-    const { researchTopicId } = useParams()
+    const { id } = useParams()
 
     const [researchTopic, update] = useState({
         userProfileId: reflectUserObject.id,
@@ -20,17 +20,17 @@ export const ResearchTopicEdit = () =>
     })
     
     useEffect(() => {
-        getResearchTopicById(researchTopicId)
+        getResearchTopicById(id)
         .then((researchTopicArray) => {
             update(researchTopicArray)
         })
-    }, [researchTopicId]);
+    }, [id]);
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
         const researchTopicToEdit = {
-            Id: parseInt(researchTopicId),
+            Id: parseInt(id),
             UserProfileId: reflectUserObject.id,
             FolderTitle: researchTopic.folderTitle,
             Note: researchTopic.note,
@@ -60,7 +60,7 @@ return (
                     onChange={
                         (evt) => {
                             const copy = {...researchTopic}
-                            copy.FolderTitle = evt.target.value
+                            copy.folderTitle = evt.target.value
                         update(copy)
                         }
                     } />
@@ -107,7 +107,7 @@ return (
     </form>
     <button className="submit_Journal"
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
-            Submit Journal
+            Submit Changes
         </button>
 </div>)
 

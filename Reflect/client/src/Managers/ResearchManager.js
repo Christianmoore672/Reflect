@@ -27,15 +27,14 @@ return fetch (`${baseUrl}/${id}`).then((res)=> res.json())
 };
 
 export const deleteResearchTopic = (id) => {
-return fetch(`/api/research/${id}`, {
+return fetch(`/api/researchTopic/${id}`, {
   method: "DELETE",
 })
   .then(() => getAllResearchTopics())
 };
 
 export const editResearchTopic = (researchTopic) => {
-console.log(researchTopic)
-return fetch(`/api/research/${researchTopic.Id}`, {
+return fetch(`/api/researchTopic/${researchTopic.Id}`, {
     method: "PUT",
     headers: {
         "Content-Type": "application/json"

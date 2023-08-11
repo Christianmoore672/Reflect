@@ -34,7 +34,6 @@ return fetch(`/api/journal/${id}`, {
 };
 
 export const editJournal = (journal) => {
-console.log(journal)
 return fetch(`/api/journal/${journal.Id}`, {
     method: "PUT",
     headers: {

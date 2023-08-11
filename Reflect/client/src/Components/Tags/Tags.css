@@ -1,0 +1,106 @@
+.tag_container {
+    background-color: #b1bcb5;
+    width: 1000px;
+    height: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 250px;
+}
+  .all_tags {
+    /* display: flex; */
+    background-color: #c9d2cd;
+    margin: 10px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: 450px;
+    margin-top: 15px;
+  }
+
+  .tag {
+    
+    background-color: #a5c9b5;
+    margin: 10px;
+    padding: 10px;
+
+  }
+
+  .add_Tag_Button {
+    margin: 10px;
+  }
+
+
+  /* Journal Details */
+  .tag_Details_Card {
+    background-color: #b1bcb5;
+    width: 1000px;
+    height: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 250px;
+  }
+
+  .all_Tag_Details {
+    background-color: #c9d2cd;
+    margin: 10px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: 450px;
+    margin-top: 15px;
+  }
+
+  .tag_Content {
+
+  }
+
+  .photo {
+
+  }
+
+  .date_User {
+
+  }
+
+  .tag_Delete {
+    background-color: #f3933f;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+  .tag_Edit {
+    background-color: #f3933f;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  
+  .edit_Delete {
+  margin-left: 810px;
+  }
+
+  /* Add Journal Form */
+  .tag_Form_Container {
+    background-color: #b1bcb5;
+    width: 1000px;
+    height: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 250px;
+  }
+  .tag_Form {
+    background-color: #c9d2cd;
+    margin: 10px;
+    border-radius: 5px;
+    height: 450px;
+    margin-top: 15px;
+    padding: 15px;
+  }
+
+  .tag_Form_Group {
+    margin: 5px;
+  }
+  .tag_Content {
+    height: 200px;
+    width: 500px;
+  }

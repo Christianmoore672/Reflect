@@ -96,8 +96,8 @@ namespace Reflect.Repositories
                         SELECT t.Id, t.JournalId, t.Name, t.UserProfileId,
                                u.Name, u.Email, u.ImageUrl
                         FROM Tag t
-                            LEFT JOIN UserProfile u ON j.UserProfileId = u.Id
-                        ORDER BY Name"
+                            LEFT JOIN UserProfile u ON t.UserProfileId = u.Id
+                       WHERE t.id = @id;"
                 ;
 
                     cmd.Parameters.AddWithValue("@id", id);
@@ -107,7 +107,14 @@ namespace Reflect.Repositories
 
                     if (reader.Read())
                     {
-                        tag = new Tag();
+                        tag = new Tag()
+                        {
+                            Id = DbUtils.GetInt(reader, "Id"),
+                            JournalId = DbUtils.GetInt(reader, "JournalId"),
+                            Name = DbUtils.GetString(reader, "Name"),
+                            UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
+
+                        };
 
                     }
 
@@ -128,8 +135,8 @@ namespace Reflect.Repositories
                         INSERT INTO Tag (
                             JournalId, Name, UserProfileId )
                         OUTPUT INSERTED.ID
-                        VALUES (
-                            @JournalId, @Name, @UserProfileId )";
+                        VALUES (@JournalId, @Name, @UserProfileId )";
+
                     cmd.Parameters.AddWithValue("@JournalId", tag.JournalId);
                     cmd.Parameters.AddWithValue("@Name", tag.Name);
                     cmd.Parameters.AddWithValue("@UserProfileId", tag.UserProfileId);

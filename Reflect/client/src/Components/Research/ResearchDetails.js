@@ -22,9 +22,9 @@ export const ResearchDetails = () => {
 
     const editButton = () => {
       if (researchTopic.userProfileId === reflectUserObject.id) {
-        return <>
-        <button onClick={() => navigate(`/researchTopic/edit/${researchTopic.id}`)} >Edit</button>
-        </>
+        
+        navigate(`/research/edit/${researchTopic.id}`)
+       
     }};
 
     const handleDelete = () => {
@@ -43,10 +43,8 @@ export const ResearchDetails = () => {
 
     const deleteButton = () => {
       if (researchTopic.userProfileId === reflectUserObject.id) {
-          return <button onClick={ alertClick } >Delete</button>}
-
-          else {
-            return ""
+          alertClick()
+          
           }}
 
 return (

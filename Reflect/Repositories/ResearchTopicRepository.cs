@@ -146,7 +146,7 @@ namespace Reflect.Repositories
                     cmd.Parameters.AddWithValue("@UserProfileId", researchTopic.UserProfileId);
                     cmd.Parameters.AddWithValue("@Note", researchTopic.Note);
                     cmd.Parameters.AddWithValue("@Link", researchTopic.Link);
-                    cmd.Parameters.AddWithValue("@DateCreated", researchTopic.DateCreated);
+                    cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
 
                     researchTopic.Id = (int)cmd.ExecuteScalar();
                 }
