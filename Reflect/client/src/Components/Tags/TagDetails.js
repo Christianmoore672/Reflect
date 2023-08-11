@@ -54,7 +54,9 @@ return (
   <div  className="all_Tag_Details" key={tag.id}>
 
       <div className="tag_Content">
-        <h2> <b>Name: {tag.name}</b> </h2>
+        <h2> <b>Tag Name: </b> 
+        {tag.name}
+        </h2>
       </div> 
 
   </div> 

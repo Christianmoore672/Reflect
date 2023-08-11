@@ -43,7 +43,7 @@ export const JournalEdit = () =>
 
        return editJournal(journalToEdit)
         .then(() => {
-            navigate("journals")
+            navigate("/journals")
         })
 };
 
@@ -51,8 +51,8 @@ export const JournalEdit = () =>
 return (
     <div className="journal_Form_Container">
     <form className="journal_Form">
-    <h2 className="journal_Form__Title">Add New Journal</h2>
-    <fieldset>
+        <h2 className="journal_Form__Title">Edit Journal</h2>
+        <fieldset>
             <div className="journal_Form_Group">
                 <label htmlFor="Title">Title:</label>
                 <input
@@ -125,7 +125,7 @@ return (
                     } />
             </div>
         </fieldset>
-        </form>
+    </form>
     <button className="submit_Journal"
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
             Submit Journal

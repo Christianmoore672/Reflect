@@ -12,7 +12,6 @@ export const TagEdit = () =>
     const { id } = useParams()
 
     const [tag, update] = useState({
-        // journalId: journalId,
         name: "",
         userProfileId: reflectUserObject.id
 
@@ -29,7 +28,7 @@ export const TagEdit = () =>
         event.preventDefault()
 
         const tagToEdit = {
-            // JournalId: journalId,
+            Id: parseInt(id),
             Name: tag.name,
             UserProfileId: reflectUserObject.id
         }
@@ -61,12 +60,13 @@ return (
                         }
                     } />
             </div>
-        </fieldset>
-        </form>
-    <button className="submit_Tag"
+            <button className="submit_Tag_Edit"
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
             Submit Changes
-        </button>
+            </button>
+        </fieldset>
+        </form>
+   
 </div>)
 
 }

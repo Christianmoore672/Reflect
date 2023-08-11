@@ -23,7 +23,5 @@ namespace Reflect.Models
         [Required]
         public DateTime DateCreated { get; set; }
 
-        public List<Tag>? Tags { get; set; } = new List<Tag>();
-
     }
 }

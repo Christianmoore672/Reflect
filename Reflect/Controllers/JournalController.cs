@@ -69,5 +69,6 @@ namespace Reflect.Controllers
             _journalRepository.Update(journal);
             return NoContent();
         }
+
     }
 }

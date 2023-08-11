@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS [ResearchTopic];
 DROP TABLE IF EXISTS [Tag];
 DROP TABLE IF EXISTS [Journal];
 DROP TABLE IF EXISTS [UserProfile];
+DROP TABLE IF EXISTS [JournalTag];
 
 CREATE TABLE [Journal] (
   [Id] integer PRIMARY KEY IDENTITY NOT NULL,
@@ -48,15 +49,6 @@ CREATE TABLE [Tag] (
   [Name] nvarchar(255) NOT NULL,
   [UserProfileId] integer NOT NULL,
 )
-GO
-
-ALTER TABLE [Journal] ADD FOREIGN KEY ([UserProfileId]) REFERENCES [UserProfile] ([Id])
-GO
-
-ALTER TABLE [ResearchTopic] ADD FOREIGN KEY ([UserProfileId]) REFERENCES [UserProfile] ([Id])
-GO
-
-ALTER TABLE [Tag] ADD FOREIGN KEY ([UserProfileId]) REFERENCES [UserProfile] ([Id])
 GO
 
 SET IDENTITY_INSERT [UserProfile] ON

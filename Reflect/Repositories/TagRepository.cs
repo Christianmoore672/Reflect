@@ -21,7 +21,7 @@ namespace Reflect.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT Id, JournalId, Name, UserProfileId
+                          SELECT Id, Name, UserProfileId
                             FROM Tag
                         ORDER BY Name"
                     ;
@@ -34,7 +34,6 @@ namespace Reflect.Repositories
                         tags.Add(new Tag()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            JournalId = DbUtils.GetInt(reader, "JournalId"),
                             Name = DbUtils.GetString(reader, "Name"),
                             UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
                         }
@@ -56,7 +55,7 @@ namespace Reflect.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT t.Id, t.JournalId, t.Name, t.UserProfileId,
+                        SELECT t.Id, t.Name, t.UserProfileId,
                                u.Name, u.Email, u.ImageUrl
                         FROM Tag t
                             LEFT JOIN UserProfile u ON t.UserProfileId = u.Id
@@ -72,7 +71,6 @@ namespace Reflect.Repositories
                         tags.Add(new Tag()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            JournalId = DbUtils.GetInt(reader, "JournalId"),
                             Name = DbUtils.GetString(reader, "Name"),
                             UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
                         }
@@ -93,7 +91,7 @@ namespace Reflect.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT t.Id, t.JournalId, t.Name, t.UserProfileId,
+                        SELECT t.Id, t.Name, t.UserProfileId,
                                u.Name, u.Email, u.ImageUrl
                         FROM Tag t
                             LEFT JOIN UserProfile u ON t.UserProfileId = u.Id
@@ -110,7 +108,6 @@ namespace Reflect.Repositories
                         tag = new Tag()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            JournalId = DbUtils.GetInt(reader, "JournalId"),
                             Name = DbUtils.GetString(reader, "Name"),
                             UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
 
@@ -133,11 +130,10 @@ namespace Reflect.Repositories
                 {
                     cmd.CommandText = @"
                         INSERT INTO Tag (
-                            JournalId, Name, UserProfileId )
+                            Name, UserProfileId )
                         OUTPUT INSERTED.ID
-                        VALUES (@JournalId, @Name, @UserProfileId )";
+                        VALUES (@Name, @UserProfileId )";
 
-                    cmd.Parameters.AddWithValue("@JournalId", tag.JournalId);
                     cmd.Parameters.AddWithValue("@Name", tag.Name);
                     cmd.Parameters.AddWithValue("@UserProfileId", tag.UserProfileId);
 
@@ -169,13 +165,11 @@ namespace Reflect.Repositories
                 {
                     cmd.CommandText = @"
                         UPDATE Tag
-                           SET JournalId = @JournalId,
-                               Name = @Name,
+                           SET Name = @Name,
                                UserProfileId = @UserProfileId
 
                          WHERE Id = @Id";
 
-                    DbUtils.AddParameter(cmd, "@JournalId", tag.JournalId);
                     DbUtils.AddParameter(cmd, "@Name", tag.Name);
                     DbUtils.AddParameter(cmd, "@UserProfileId", tag.UserProfileId);
                     DbUtils.AddParameter(cmd, "@Id", tag.Id);

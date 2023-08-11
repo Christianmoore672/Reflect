@@ -61,7 +61,7 @@ return (
         <fieldset>
             <div className="research_Form_Group">
                 <label htmlFor="note">Notes:</label>
-                <input 
+                <textarea className="research_Note"
                     required autoFocus
                     type="text"
                     id="note"

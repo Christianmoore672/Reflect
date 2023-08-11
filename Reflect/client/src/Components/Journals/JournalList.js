@@ -24,11 +24,11 @@ const JournalList = () => {
         <div className="all_journals">
       {journals.map((journal) => (
         <div key={journal.id} className="journal">
-          <img src={journal.imageUrl} alt={journal.title} />
+          <img src={journal.imageUrl} alt= "Image Not Found" />
           <p>
-            <strong>{journal.title}</strong>
+            <strong className="journal_List_Title">{journal.title}</strong>
           </p>
-          <p>{journal.caption}</p>
+          {/* <p>{journal.caption}</p> */}
           <button onClick={() => navigate(`/journal/${journal.id}`)} className="more_Button"> More... </button>
         </div>
       ))}

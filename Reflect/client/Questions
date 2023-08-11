@@ -1,7 +1,14 @@
 Questions:
-- Getting 201 undocumented error on add & 204 on delete/put not 200  does that matter if its working?
 
-Problems:
+Problems(Not MVP Related):
 - date created not posting on details page
-- edit/add tag not working
-- journals with tags attached can't be deleted
+- Home image showing up twice
+
+
+Next Steps:
+create add tag button & button dropdown on journal page
+- press button to disply hidden form for tags
+
+-get a tag id 
+
+bridge table needs methods in a controller and methods in a repo

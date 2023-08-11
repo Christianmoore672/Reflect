@@ -10,8 +10,6 @@ namespace Reflect.Models
 
         public string? Name { get; set; }
 
-        public int JournalId { get; set; }
-
         public int? UserProfileId { get; set; }
     }
 }

@@ -55,19 +55,16 @@ return (
 
       <div className="research_Content">
         <h2> <b>Title: {researchTopic.folderTitle}</b> </h2>
-        <h3> {researchTopic.note} </h3>
-        <h4> {researchTopic.link} </h4>
+        <h5> {researchTopic.note} </h5>
+        <h6> {researchTopic.link} </h6>
       </div> 
 
   </div> 
-
-
-
-<div className="edit_Delete">
+  <div className="edit_Delete">
         <button className="research_Delete" onClick= {editButton}> Edit </button>
         <button className="research_Edit" onClick= {deleteButton}> Delete </button> 
 </div>
-
 </article>   
+
 );
 };
