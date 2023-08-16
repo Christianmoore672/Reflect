@@ -1,3 +1,18 @@
+.beige {
+    
+  height: 100%;
+  width: 100%;
+} 
+
+.journal_Header {
+  font-family: 'Marcellus', serif;
+  position: absolute;
+  top: 20px;
+  left: 570px;
+  font-size: 60px;
+  text-shadow: 1px 3px 4px rgb(55, 52, 52);
+}
+
 .journal_container {
     /* background-color: #b1bcb5; */
     width: 650px;
@@ -81,10 +96,6 @@
   border-radius: 10px;
   }
 
-  .test {
-    /* border-color: black; */
-
-  }
 
   .more_Button {
     float:right;
@@ -113,18 +124,6 @@
     margin-top: 15px;
   }
 
-  .journal_Content {
-
-  }
-
-  .photo {
-
-  }
-
-  .date_User {
-
-  }
-
   .journal_Delete {
     background-color: #f3933f;
     border-radius: 5px;
@@ -142,52 +141,69 @@
   }
 
   /* Add Journal Form */
+
   .journal_Form_Container {
-    background-color: #b1bcb5;
-    width: 1000px;
-    height: 600px;
+    /* background-color: #b1bcb5; */
+    width: 750px;
+    height: 700px;
     border-radius: 20px;
-    padding: 30px;
-    margin: 50px;
-    margin-left: 250px;
+    padding: 30px; 
   }
+
   .journal_Form {
     background-color: #c9d2cd;
     margin: 10px;
     border-radius: 5px;
-    height: 450px;
+    height: 600px;
     margin-top: 15px;
     padding: 15px;
+  }
+
+  .journal_Form__Title {
+    text-shadow: 1px 2px 3px rgb(108, 105, 105);
+    font-family: 'Marcellus', serif;
+    
   }
 
   .journal_Form_Group {
     margin: 5px;
   }
+
+  .title_Input {
+    width: 390px;
+    border-radius: 5px;
+  }
+
+  .description_Input {
+    width: 390px;
+    border-radius: 5px;
+  }
+
   .journal_Content {
-    height: 200px;
-    width: 500px;
+    height: 390px;
+    width: 630px;
+    border-radius: 5px;
   }
 
-  .beige {
-    
-    height: 100%;
-    width: 100%;
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px;
+    padding: 5px;
   }
 
-  .journal_Header {
-    font-family: 'Marcellus', serif;
-    position: absolute;
-    top: 20px;
-    left: 570px;
-    font-size: 60px;
-    text-shadow: 1px 3px 4px rgb(55, 52, 52);
+  .description {
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px;
   }
 
-  .paper {
-    position: absolute;
-    top: 90px;
-    left: 300px;
-    width: 900px;
+  .content {
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px;
+    display: flex;
+
   }
+  
+
+  
 
   
