@@ -223,4 +223,17 @@
   box-shadow: 5px 4px 4px rgb(55, 52, 52);
 }
 
+.logout_Icon {
+  position: absolute;
+  top: 5%;
+  left: 93%;
+  font-size: 50px;
+  height: 90px;
+  width: 80px;
+  text-align: center;
+  border: 2px solid rgb(202, 200, 200);
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
+  border-radius: 10px;
+}
+
 

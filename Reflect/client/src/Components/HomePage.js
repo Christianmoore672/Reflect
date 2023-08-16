@@ -6,6 +6,9 @@ import { MyNavbar } from "../Components/NavBar"
 import { Navbar } from "reactstrap";
 import Beige  from "../assets/Beige.png"
 import brown  from "../assets/brown.png"
+import { BiLogOut } from 'react-icons/bi'
+import { logout } from '../Managers/UserProfileManger';
+import Logout from "./Logout";
 
 export default function Reflect() {
 
@@ -43,7 +46,8 @@ export default function Reflect() {
       <div className="home_gif" ref={container}></div>  
       </div>
     </article>
-
+    <div className="logout_Icon" onClick={() => { }}> 
+        <BiLogOut /> </div>
     </article>
   );
 }

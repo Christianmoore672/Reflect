@@ -22,12 +22,13 @@
 }
   .all_journals {
     /* display: flex; */
-    background-color: #eaefec;
+    /* background-color: #eaefec; */
     margin: 10px;
     border-radius: 5px;
     overflow-y: scroll;
-    height: 425px;
+    height: 400px;
     margin-top: 15px;
+    /* box-shadow: 5px 4px 4px rgb(55, 52, 52); */
   }
 
   .journal_List_Title {
@@ -35,7 +36,7 @@
     font-family: 'Montserrat', sans-serif;
     /* position: absolute; */
     /* margin-left: 15px; */
-    padding: 25px;
+    /* padding: 25px; */
     
   }
 
@@ -43,22 +44,53 @@
     background-color: #b7c4bd;
     margin: 30px;
     padding: 10px;
-    height: 55px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid black;
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
     /* border-radius: 5%; */
 
   }
 
   .add_Journal_Button {
-    margin: 10px;
-    font-family: 'Marcellus', serif;
+  border: 2px solid black;
+  /* z-index: 2; */
+  position: absolute;
+  top: 17%;
+  left: 44%; 
+  text-align: center;
+  height: 50px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
+  font-family: 'Marcellus', serif;
+  
+  }
+
+  .home_Icon {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    font-size: 60px;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    border: 2px solid rgb(230, 227, 227);
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
+  border-radius: 10px;
+  }
+
+  .test {
+    /* border-color: black; */
+
   }
 
   .more_Button {
-    position: absolute;
-    border-radius: 20%;
-    left: 75%;
-
+    float:right;
   }
+
+
 
 
   /* Journal Details */
@@ -145,9 +177,10 @@
   .journal_Header {
     font-family: 'Marcellus', serif;
     position: absolute;
-    top: 40px;
+    top: 20px;
     left: 570px;
-    font-size: 60px
+    font-size: 60px;
+    text-shadow: 1px 3px 4px rgb(55, 52, 52);
   }
 
   .paper {
@@ -156,3 +189,5 @@
     left: 300px;
     width: 900px;
   }
+
+  
