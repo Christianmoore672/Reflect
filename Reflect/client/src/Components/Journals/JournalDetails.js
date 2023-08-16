@@ -59,8 +59,6 @@ return (
         <h4> {journal.content} </h4>
       </div> 
 
-      <img className="photo" src={journal.imageUrl} alt="Not found" />
-
       <h6 className="date_User">
         Created on: {journal.DateCreated}
         {/* Created by: {journal.userProfile?.name} */}

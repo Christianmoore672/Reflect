@@ -15,7 +15,6 @@ export const JournalEdit = () =>
         title: "",
         description:"",
         content:"",
-        imageUrl:"",
         userProfileId: reflectUserObject.id,
         dateCreated: Date.now()
 
@@ -36,7 +35,6 @@ export const JournalEdit = () =>
             Title: journal.title,
             Description: journal.description,
             Content: journal.content,
-            ImageUrl: journal.imageUrl,
             UserProfileId: reflectUserObject.id,
             DateCreated: new Date().toISOString
         }
@@ -67,26 +65,6 @@ return (
                         update(copy)
                         }
                     } />
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="journal_Form_Group">
-                <label htmlFor="imageUrl">Image Url:</label>
-                <input 
-                    required autoFocus
-                    type="text"
-                    id="imageUrl"
-                   
-                    value={journal.imageUrl}
-                    onChange={
-                        (evt) => {
-                            const copy = {...journal}
-                            copy.imageUrl = evt.target.value
-                        update(copy)
-                        }
-                    } 
-                    
-                    />
             </div>
         </fieldset>
         <fieldset>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink as RRNavLink } from "react-router-dom";
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import { logout } from '../Managers/UserProfileManger';
+import Beige  from "../assets/Beige.png"
 
 export default function Header({isLoggedIn, setIsLoggedIn}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,7 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
             }
           </Nav>
           <Nav navbar>
+            
             {isLoggedIn &&
               <>
                 <NavItem>
@@ -45,7 +47,9 @@ export default function Header({isLoggedIn, setIsLoggedIn}) {
             }
           </Nav>
         </Collapse>
+        
       </Navbar>
+      
     </div>
   );
 }
