@@ -78,3 +78,4 @@ C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair6
 C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\hair7.json
 C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\seated.json
 C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\swing.json
+C:\Users\user\workspace\Reflect\Reflect\bin\Debug\net6.0\client\src\assets\sun.json

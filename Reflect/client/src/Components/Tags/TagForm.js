@@ -1,13 +1,14 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { addTag } from "../../Managers/TagManager";
+import { addJournalTag } from "../../Managers/JournalManager";
 
 
 export const TagForm = () => {
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
-
+    const { id } = useParams();
 
     const [tag, update] = useState({
         name: "",
@@ -26,8 +27,15 @@ export const TagForm = () => {
 
 
         return addTag(tagToSendToAPI)
-        .then(() => {
-        navigate("/trends")
+        .then((returnTag) => {
+            const newJournalTag = {
+                    tagId: returnTag.id,
+                    journalId: +id
+            }
+            addJournalTag(newJournalTag)
+            .then(() => {
+                navigate("/trends")
+            })
         })
 
 };

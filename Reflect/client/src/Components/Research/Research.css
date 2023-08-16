@@ -1,23 +1,41 @@
+.beige {
+    
+  height: 100%;
+  width: 100%;
+} 
+
+.research_Header {
+  font-family: 'Marcellus', serif;
+  position: absolute;
+  top: 20px;
+  left: 620px;
+  font-size: 60px;
+  text-shadow: 1px 3px 4px rgb(55, 52, 52);
+}
+
 .research_List {
 display: flex;
 }
 .research_Container {
-  background-color: #b1bcb5;
-  width: 1000px;
-  height: 600px;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 50px;
-  margin-left: 250px;
+   /* background-color: #b1bcb5; */
+   width: 1110px;
+   height: 500px;
+   border-radius: 20px;
+   padding: 30px;
+   margin: 50px;
+   margin-left: 300px;
+   position: absolute;
+   top: 130px;
+   /* left: 300px; */
+   /* width: 900px; */
 }
   .all_Research {
-    /* display: flex; */
-    background-color: #c9d2cd;
     margin: 10px;
     border-radius: 5px;
-    overflow-y: scroll;
-    height: 450px;
+    /* overflow-y: scroll; */
+    height: 400px;
     margin-top: 15px;
+    display: flex;
   }
 
   .researchTopic {
@@ -32,7 +50,19 @@ display: flex;
   }
 
   .add_Research_Button {
-    margin: 10px;
+    border: 2px solid black;
+    /* z-index: 2; */
+    position: absolute;
+    top: 17%;
+    left: 43%; 
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
+    font-family: 'Marcellus', serif;
+    
   }
 
   .folder_Image {
@@ -41,6 +71,7 @@ height: 150px;
 
   .folder_Text {
     margin-left: -115px;
+    text-align: center;
  }
 
  .research_Gif {

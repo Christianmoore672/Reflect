@@ -106,18 +106,32 @@
 
   /* Journal Details */
   .journal_Details_Card {
-    background-color: #b1bcb5;
-    width: 1000px;
-    height: 600px;
+    /* background-color: #b1bcb5; */
+    width: 650px;
+    height: 500px;
     border-radius: 20px;
     padding: 30px;
     margin: 50px;
-    margin-left: 250px;
+    margin-left: 450px;
+    position: absolute;
+    top: 50px;
+    /* left: 300px; */
+    /* width: 900px; */
+  }
+
+  .journal_Title {
+    font-family: 'Marcellus', serif;
+    position: absolute;
+    top: 20px;
+    left: 620px;
+    font-size: 60px;
+    text-shadow: 1px 3px 4px rgb(55, 52, 52);
   }
 
   .all_Journal_Details {
-    background-color: #c9d2cd;
+    background-color: #c9ccd2;
     margin: 10px;
+    padding: 10px;
     border-radius: 5px;
     overflow-y: scroll;
     height: 450px;
@@ -125,19 +139,49 @@
   }
 
   .journal_Delete {
-    background-color: #f3933f;
-    border-radius: 5px;
-    margin: 5px;
+    border: 2px solid black;
+    /* z-index: 2; */
+    position: absolute;
+    top: 85%;
+    left: 60%; 
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
+    font-family: 'Marcellus', serif;
   }
 
   .journal_Edit {
-    background-color: #f3933f;
-    border-radius: 5px;
-    margin: 5px;
+    border: 2px solid black;
+    /* z-index: 2; */
+    position: absolute;
+    top: 85%;
+    left: 45%; 
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
+    font-family: 'Marcellus', serif;
   }
   
-  .edit_Delete {
-  margin-left: 810px;
+
+  .add_tag_Journal {
+    border: 2px solid black;
+  /* z-index: 2; */
+  position: absolute;
+  top: 85%;
+  left: 30%; 
+  text-align: center;
+  height: 50px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
+  font-family: 'Marcellus', serif;
   }
 
   /* Add Journal Form */

@@ -1,4 +1,5 @@
 // import React from "react";
+//https://localhost:7084/journalTag
 
 const baseUrl = '/api/journal';
 
@@ -42,3 +43,13 @@ return fetch(`/api/journal/${journal.Id}`, {
     body: JSON.stringify(journal)
 }).then(() => getAllJournals())
 }
+
+export const addJournalTag = (journalTag) => { 
+  return fetch(`${baseUrl}/journalTag`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(journalTag),
+  });
+};

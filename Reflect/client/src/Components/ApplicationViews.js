@@ -27,7 +27,7 @@ export default function ApplicationViews() {
         <Route path="/tag/:id" element={<TagDetails />} />
         <Route path="/journal/add" element={<JournalForm />} />
         <Route path="/research/add" element={<ResearchForm />} />
-        <Route path="/tag/add" element={<TagForm />} />
+        <Route path="/tag/add/:id" element={<TagForm />} />
         <Route path="/journal/edit/:id" element={<JournalEdit />} />
         <Route path="/research/edit/:id" element={<ResearchTopicEdit />} />
         <Route path="/tag/edit/:id" element={<TagEdit />} />

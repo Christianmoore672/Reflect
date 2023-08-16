@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteJournal, getJournalById } from "../../Managers/JournalManager";
 import "./Journals.css";
+import { Link } from "react-router-dom";
+import TagList from "../Tags/TagList";
+import Beige from "../Beige.png";
 
 export const JournalDetails = () => {
     const [journal, setJournal] = useState();
@@ -10,8 +13,17 @@ export const JournalDetails = () => {
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
+
+    // Tag stuff //
+    const [showTags, setShowTags] = useState(false);
+
+    const toggleTags = () => {
+      setShowTags((prevState) => !prevState);
+    };
+
+    // ...........................
     
-// not reading
+    
     useEffect(() => {
       getJournalById(id).then(setJournal);
     }, [id]);
@@ -48,19 +60,22 @@ export const JournalDetails = () => {
           }}
 
 return (
+  <article>
+  <img className="beige" src={Beige} alt="" />
+  
+  <div className="journal_Title"> <b>Title: {journal.title}</b> </div>
   <article className="journal_Details_Card">
   
 
   <div  className="all_Journal_Details" key={journal.id}>
 
       <div className="journal_Content">
-        <h2> <b>Title: {journal.title}</b> </h2>
         <h3> {journal.description} </h3>
         <h4> {journal.content} </h4>
       </div> 
 
       <h6 className="date_User">
-        Created on: {journal.DateCreated}
+        Created on: {journal.dateCreated}
         {/* Created by: {journal.userProfile?.name} */}
       </h6>
   </div> 
@@ -68,10 +83,14 @@ return (
 
 
 <div className="edit_Delete">
-        <button className="journal_Delete" onClick= {editButton}> Edit </button>
-        <button className="journal_Edit" onClick= {deleteButton}> Delete </button> 
+        
 </div>
 
-</article>   
+</article> 
+        <button className="journal_Delete" onClick= {editButton}> Edit </button>
+        <button className="journal_Edit" onClick= {deleteButton}> Delete </button> 
+        <button className="add_tag_Journal"> <Link to={`/tag/add/${id}`}>Add Tag</Link></button> {showTags && <TagList />}
+    {/* <button onClick={toggleTags}> {showTags ? "Hide Tags" : "View Tags"} </button> */}
+</article>  
 );
 };

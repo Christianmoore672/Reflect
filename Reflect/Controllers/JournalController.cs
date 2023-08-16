@@ -70,5 +70,12 @@ namespace Reflect.Controllers
             return NoContent();
         }
 
+        [HttpPost("journalTag")]
+        public IActionResult Post(JournalTag journalTag)
+        {
+            _journalRepository.AddTag(journalTag);
+            return CreatedAtAction("Get", new { id = journalTag.Id }, journalTag);
+        }
+
     }
 }

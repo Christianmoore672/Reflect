@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAllJournals } from "../../Managers/JournalManager";
 import "./Journals.css";
 import { useNavigate } from "react-router-dom";
-import Beige from "./Beige.png";
+import Beige from "../Beige.png";
 import paper from "../paper.png";
 import { BsPlusSquare } from 'react-icons/bs'
 import { BsFillHouseDoorFill } from 'react-icons/bs'

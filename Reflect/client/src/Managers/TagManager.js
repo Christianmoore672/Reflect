@@ -14,7 +14,7 @@ export const addTag = (singleTag) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(singleTag),
-  });
+  }).then(r => r.json())
 };
 
 export const getUserTags = (id) => {

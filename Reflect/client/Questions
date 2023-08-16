@@ -1,14 +1,24 @@
 Questions:
 
-Problems(Not MVP Related):
-- date created not posting on details page
-- Home image showing up twice
+Problems:
+- Not redirecting to journal list when new journal is submitted & page has to be reloaded to show new on list
+- Title & description both changing when edited
 
 
-Next Steps:
-create add tag button & button dropdown on journal page
-- press button to disply hidden form for tags
+To Do:
+- Make Logout Button Functional (Need Help)
+- Create Profile Area if theres time 
+- Details pages design for each (1)
+- Research & tag form designs (2)
+- Create tag dropdown on journals allong with add option (3)
+- Add trend frequency functionality (Need Help)
+- Make buttons bump if thers time
 
--get a tag id 
+
+For Tags:
+- get a tag id 
 
 bridge table needs methods in a controller and methods in a repo
+
+
+tag/add/journal number

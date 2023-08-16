@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteResearchTopic, getResearchTopicById  } from "../../Managers/ResearchManager";
 import "./Research.css";
+import Beige from "../Beige.png";
 
 export const ResearchDetails = () => {
     const [researchTopic, setResearchTopic] = useState();
@@ -48,23 +49,28 @@ export const ResearchDetails = () => {
           }}
 
 return (
+  <article>
+  <img className="beige" src={Beige} alt="" />
+
+  <div className="research_Title"> <b>Title: {researchTopic.folderTitle}</b> </div>
   <article className="research_Details_Card">
   
 
   <div  className="all_Research_Details" key={researchTopic.id}>
 
       <div className="research_Content">
-        <h2> <b>Title: {researchTopic.folderTitle}</b> </h2>
         <h5> {researchTopic.note} </h5>
         <h6> {researchTopic.link} </h6>
       </div> 
 
   </div> 
   <div className="edit_Delete">
-        <button className="research_Delete" onClick= {editButton}> Edit </button>
-        <button className="research_Edit" onClick= {deleteButton}> Delete </button> 
+        
 </div>
-</article>   
+</article> 
+<button className="research_Delete" onClick= {editButton}> Edit </button>
+        <button className="research_Edit" onClick= {deleteButton}> Delete </button>  
+</article> 
 
 );
 };

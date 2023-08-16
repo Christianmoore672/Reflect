@@ -11,5 +11,8 @@ namespace Reflect.Models
         public string? Name { get; set; }
 
         public int? UserProfileId { get; set; }
+
+        public Journal? Journal { get; set; }
+
     }
 }

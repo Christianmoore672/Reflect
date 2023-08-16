@@ -24,6 +24,13 @@ CREATE TABLE [Journal] (
 )
 GO
 
+CREATE TABLE [JournalTag] (
+  [Id] integer PRIMARY KEY IDENTITY NOT NULL,
+  [TagId] integer NOT NULL,
+  [JournalId] integer NOT NULL
+)
+GO
+
 CREATE TABLE [UserProfile] (
   [Id] integer PRIMARY KEY identity NOT NULL,
   [Name] nvarchar(255) NOT NULL,

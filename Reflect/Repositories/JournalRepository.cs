@@ -225,5 +225,25 @@ namespace Reflect.Repositories
                 }
             }
         }
+
+        public void AddTag(JournalTag journalTag)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO JournalTag (TagId, JournalId )
+                        OUTPUT INSERTED.ID
+                        VALUES (
+                            @TagId, @JournalId )";
+                    cmd.Parameters.AddWithValue("@TagId", journalTag.TagId);
+                    cmd.Parameters.AddWithValue("@JournalId", journalTag.JournalId);
+
+                    journalTag.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
     }
 }

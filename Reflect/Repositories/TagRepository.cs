@@ -13,6 +13,7 @@ namespace Reflect.Repositories
     {
         public TagRepository(IConfiguration configuration) : base(configuration) { }
 
+        
         public List<Tag> GetAllTags()
         {
             using (var conn = Connection)
