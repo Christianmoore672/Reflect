@@ -2,7 +2,8 @@ import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { addTag } from "../../Managers/TagManager";
 import { addJournalTag } from "../../Managers/JournalManager";
-
+import { MdArrowBackIos } from 'react-icons/md';
+import Beige from "../Beige.png";
 
 export const TagForm = () => {
     const localReflectUser = localStorage.getItem("userProfile");
@@ -41,13 +42,15 @@ export const TagForm = () => {
 };
 
 return (
+<article>
+<img className="beige" src={Beige} alt="" />
     <div className="tag_Form_Container">
     <form className="tag_Form">
         <h2 className="tag_Form__Title">Add New Tag</h2>
         <fieldset>
             <div className="tag_Form_Group">
                 <label htmlFor="Name">Tag Name:</label>
-                <input
+                <input className="tag_Name_Input"
                     required autoFocus
                     type="text"
                     id="name"
@@ -66,6 +69,9 @@ return (
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
             Submit Tag
         </button>
-</div>)
+
+</div>
+<div className="back_Icon" onClick={() => navigate("/trends")}> <MdArrowBackIos /> </div>
+</article>)
 
 }

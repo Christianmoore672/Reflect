@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { editTag } from "../../Managers/TagManager";
 import { getTagById } from "../../Managers/TagManager";
-
+import { MdArrowBackIos } from 'react-icons/md';
+import Beige from "../Beige.png";
 
 export const TagEdit = () =>
 {
@@ -41,13 +42,15 @@ export const TagEdit = () =>
 
 
 return (
+    <article>
+     <img className="beige" src={Beige} alt="" />
     <div className="tag_Form_Container">
     <form className="tag_Form">
     <h2 className="tag_Form__Title">Edit Tag</h2>
     <fieldset>
             <div className="tag_Form_Group">
                 <label htmlFor="tag_Name">Tag Name:</label>
-                <input
+                <input className="tag_Name_Input"
                     required autoFocus
                     type="text"
                     id="name"
@@ -60,13 +63,15 @@ return (
                         }
                     } />
             </div>
-            <button className="submit_Tag_Edit"
+            <button className="submit_Tag_Changes"
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
             Submit Changes
             </button>
         </fieldset>
         </form>
    
-</div>)
+</div>
+<div className="back_Icon" onClick={() => navigate("/trends")}> <MdArrowBackIos /> </div>
+</article>)
 
 }

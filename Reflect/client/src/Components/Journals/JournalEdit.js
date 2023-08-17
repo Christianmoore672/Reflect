@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { editJournal } from "../../Managers/JournalManager";
 import { getJournalById } from "../../Managers/JournalManager";
-
+import Beige from "../Beige.png";
+import { MdArrowBackIos } from 'react-icons/md';
 
 export const JournalEdit = () => 
 {
@@ -47,7 +48,10 @@ export const JournalEdit = () =>
 
 
 return (
-    <div className="journal_Form_Container">
+    <article>
+    <img className="beige" src={Beige} alt="" />
+
+    <div className="edit_Journal_Form_Container">
     <form className="journal_Form">
         <h2 className="journal_Form__Title">Edit Journal</h2>
         <fieldset>
@@ -104,10 +108,13 @@ return (
             </div>
         </fieldset>
     </form>
-    <button className="submit_Journal"
+    <button className="submit_Journal_Edi"
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
-            Submit Journal
+            Submit Changes
         </button>
-</div>)
+</div>
+<div className="back_Icon" onClick={() => navigate("/journals")}> <MdArrowBackIos /> </div>
+
+</article>)
 
 }

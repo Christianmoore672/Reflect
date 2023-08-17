@@ -1,5 +1,5 @@
 
-const baseUrl = '/api/journalTag';
+const baseUrl = '/api/JournalTag';
 
 export const addJournalTag = (journalTag) => { 
     return fetch(baseUrl, {

@@ -7,12 +7,15 @@ import { getJournalById } from "../../Managers/JournalManager";
 import { addJournalTag, getAllJournalTags } from "../../Managers/JournalTagManager";
 import { getAllTags } from "../../Managers/TagManager";
 import { TagAndButton } from "../Tags/Tag"; 
+import Beige from "../Beige.png";
+import { MdArrowBackIos } from 'react-icons/md'
 
 
 export const JournalTags = ({}) => {
     const [journal, setJournal] = useState({});
     const [tags, setTags] = useState([]);
     const [journalTags, setJournalTags] = useState([])
+    const navigate = useNavigate()
 
     const { id } = useParams();
 
@@ -52,31 +55,35 @@ export const JournalTags = ({}) => {
     return (
         // <article></article>
         <div className="">
-            <h1>{journal.title}</h1>
+            <h1 className="journal_Title">{journal.title}</h1>
+            <img className="beige" src={Beige} alt="" />
             
-                <CardLink href={`/journal/${id}`}>
-                    Go back to Journal
-                </CardLink>
+                <div className="back_Icon" onClick={() => navigate(`/journal/${id}`)}> <MdArrowBackIos />
+                </div>
         
-            <div className="">
+            <div className="tag_Table">
             <Table>
                     <thead>
                         <tr>
-                            <th>
+                            {/* <th className="tag_Label">
                                 Tags
-                            </th>
+                            </th> */}
                           
                         </tr>
                     </thead>
-                   
+                   <div className="tag_Table_item">
                     {tags.map((tag) => (
                         <TagAndButton 
                         tag={tag}
-                        post={journal}
+                        journal={journal}
                          />
                     ))}
+                    </div>
 
                 </Table>
+             <button className="new_Tag_Button" >
+                New Tag
+            </button> 
             </div>
         </div>)
 }

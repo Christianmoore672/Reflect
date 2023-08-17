@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import TagList from "../Tags/TagList";
 import { getAllTags } from "../../Managers/TagManager";
 import Beige from "../Beige.png";
+import { MdArrowBackIos } from 'react-icons/md'
 import { Card, ListGroup, ListGroupItem, ListGroupItemHeading } from "reactstrap";
 
 export const JournalDetails = () => {
@@ -24,7 +25,7 @@ export const JournalDetails = () => {
     // const toggleTags = () => {
     //   setShowTags((prevState) => !prevState);
     useEffect(() => {
-      getJournalById(id).then(setJournal)
+      getJournalById(id).then(setJournal);
       getAllJournalTags(id).then(setTag);
          
   
@@ -76,9 +77,9 @@ export const JournalDetails = () => {
           }}
 
 return (
-  <article>
+  <article className="parent">
     
-  <div className="journal_Title" > <b>Title: {journal.title}</b> </div>
+  <div className="journal_Title" > <b>{journal.title}</b> </div>
   <img className="beige" src={Beige} alt="" />
   
   <article className="journal_Details_Card">
@@ -90,43 +91,34 @@ return (
         <h3> {journal.description} </h3>
         <h4> {journal.content} </h4>
       </div> 
+      {/* <section>
 
+<ListGroup flush>
+    <ListGroupItemHeading>Tags:</ListGroupItemHeading>
+    {
+        journal?.tags?.length
+            ? journal?.tags?.map((tag) => (<>
+                <Card key={tag.id}>
+                    <ListGroup flush>
+                        <ListGroupItem>
+                            <h6>{tag.name}</h6><br />
+                        </ListGroupItem>
+                    </ListGroup>
+                </Card></>
+            ))
+            : <h6>No tags have been associated with this journal</h6>
+    }
+</ListGroup>
+
+</section> */}
       <div>
-      Tag: {journal.tags.map((tag) => <p>{tag.name}</p>)}
+      Tags: {journal?.tags?.map((tag) => <p>{tag.name}</p>)}
       </div>
 
       <h6 className="date_User">
         Created on: {journal.dateCreated}
-        {/* Created by: {journal.userProfile?.name} */}
-      </h6>
-
-      {/* <ListGroup flush>
-                    <ListGroupItemHeading>Tags</ListGroupItemHeading>
-                    {
-                        journal?.tags?.length
-                            ? journal?.tags?.map((t) => (<>
-                                <Card key={t.id}
-                                >
-                                    <ListGroup flush>
-                                        <ListGroupItem>
-                                            <h6>{t.name}</h6><br />
-                                        </ListGroupItem>
-                                    </ListGroup>
-                                </Card></>
-                            ))
-                            : <h6>No tags have been associated with this journal</h6>
-                    }
-      </ListGroup> */}
+     </h6>
   </div> 
-  
-
-
-
-<div className="edit_Delete">
-        
-</div>
-
-
 
 </article> 
         <button className="journal_Delete" onClick= {editButton}> Edit </button>
@@ -137,6 +129,8 @@ return (
     {/* <button onClick={toggleTags}> {showTags ? "Hide Tags" : "View Tags"} </button> */}
 
     
+
+    <div className="back_Icon" onClick={() => navigate("/journals")}> <MdArrowBackIos /> </div>
 </article>  
 );
 };

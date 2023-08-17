@@ -105,6 +105,12 @@
 
 
   /* Journal Details */
+  .parent {
+    position: relative;
+    /* text-align: center; */
+    /* color: white; */
+  }
+
   .journal_Details_Card {
     /* background-color: #b1bcb5; */
     width: 650px;
@@ -121,15 +127,10 @@
 
   .journal_Title {
     font-family: 'Marcellus', serif;
-    /* position: absolute; */
-    
-    display: flex;
-    flex-direction: column;
-    /* top: 20px; */
-    text-align: center;
-    
-    
-    /* left: 620px; */
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 60px;
     text-shadow: 1px 3px 4px rgb(55, 52, 52);
   }
@@ -148,7 +149,7 @@
     border: 2px solid black;
     /* z-index: 2; */
     position: absolute;
-    top: 85%;
+    top: 80%;
     left: 60%; 
     text-align: center;
     height: 50px;
@@ -163,7 +164,7 @@
     border: 2px solid black;
     /* z-index: 2; */
     position: absolute;
-    top: 85%;
+    top: 80%;
     left: 45%; 
     text-align: center;
     height: 50px;
@@ -179,7 +180,7 @@
     border: 2px solid black;
   /* z-index: 2; */
   position: absolute;
-  top: 85%;
+  top: 80%;
   left: 30%; 
   text-align: center;
   height: 50px;
@@ -190,6 +191,25 @@
   font-family: 'Marcellus', serif;
   }
 
+  /* edit journal form */
+  .edit_Journal_Form_Container {
+    width: 750px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 400px;
+    position: absolute;
+    top: -30px;
+  }
+
+  .submit_Journal_Edit {
+    margin-left: 530px;
+    position: absolute;
+    top: 122%;
+    width: 135px;
+    border-radius: 5px;
+  }
   /* Add Journal Form */
 
   .journal_Form_Container {
@@ -251,6 +271,82 @@
     margin: 5px;
     display: flex;
 
+  }
+
+
+  /* Journal Tags */
+
+  .go_Back {
+    /* font-family: 'Marcellus', serif; */
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    /* text-shadow: 1px 3px 4px rgb(55, 52, 52); */
+  }
+
+  .tag_Table {
+     /* background-color: #c4bfc0; */
+    width: 600px;
+    height: 450px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 450px;
+    position: absolute;
+    top: 120px;
+  }
+
+  .tag_Label {
+
+  }
+
+  .tag_Table_item {
+    /* background-color: #c4bfc0; */
+    width: 900px;
+    height: 50px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    /* flex-direction: column; */
+  }
+
+  .tag_name {
+
+  }
+
+  .assign_Button {
+
+  }
+
+  .tag_Card {
+    width: 200px;
+    margin: 5px;
+  }
+
+  .tag_card_item {
+    border-radius: 5px;
+    background-color: #96dcb7;
+    font-size: 17px;
+  }
+
+  .new_Tag_Button {
+    border: 2px solid black;
+    /* z-index: 2; */
+    position: absolute;
+    top: -5%;
+    left: 50%; 
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
+    font-family: 'Marcellus', serif;
+    transform: translate(-50%, -50%);
   }
   
 

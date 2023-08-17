@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { addJournalTag, getAllJournalTags } from "../../Managers/JournalTagManager";
 import { getAllTags } from "../../Managers/TagManager";
+import { BsPlusSquare } from 'react-icons/bs'
 
 export const TagAndButton = ({ tag, journal }) => {
 
@@ -22,60 +23,14 @@ export const TagAndButton = ({ tag, journal }) => {
     }
 
     return (
-        <Card className="m-4">
+        <Card className="tag_Card">
   
-          <CardBody>
+          <CardBody className="tag_card_item">
 
-            <strong>{tag.name}</strong>
-             
-          <CardFooter>
-            <button className="btn btn-primary" onClick={()=>{ saveJournalTag() }}>
-                Assign Tag
-            </button> 
-            <Button onClick={() => navigate(`/tag/edit/${tag.id}`)}>
-                Edit
-            </Button>     
+            <div className="">{tag.name}</div>
+            <BsPlusSquare className="more_Button" onClick={()=>{ saveJournalTag(tag) }} />
           
-          </CardFooter> 
           </CardBody>
         </Card>
     )}
     export default TagAndButton
-
-
-    // return (
-    //     <article> 
-    //             <div> {tag.name} </div>
-    //             <div>
-    //                     {
-    //                     !journalTags.some(x => x.tagId === tag.id)
-    //                     ?
-    //                     <button className="" onClick={() => { saveJournalTag() }}>
-    //                         Add Tag
-    //                     </button>
-    //                     :
-    //                     <></>
-    //                     }
-    //             </div>
-    //     </article>
-
-                // <tbody>
-                //     <tr>
-                //     <tr>{tag.name}</tr>
-                //     <td>
-                //         {
-                //         !journalTags.some(x => x.tagId === tag.id)
-                //         ?
-                //         <button className="" onClick={() => { saveJournalTag() }}>
-                //             Add Tag
-                //         </button>
-                //         :
-                //         <></>
-                //         }
-                //     </td>
-                //     </tr>
-                // </tbody>
-
-     
-//     )
-// }

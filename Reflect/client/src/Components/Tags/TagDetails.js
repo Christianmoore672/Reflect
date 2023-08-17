@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteTag, getTagById } from "../../Managers/TagManager";
 import "./Tags.css";
+import { MdArrowBackIos } from 'react-icons/md';
+import Beige from "../Beige.png";
 
 export const TagDetails = () => {
     const [tag, setTag] = useState();
@@ -48,8 +50,11 @@ export const TagDetails = () => {
           }}
 
 return (
-  <article className="tag_Details_Card">
+  <article>
+    
+  <img className="beige" src={Beige} alt="" />
   
+  <article className="tag_Details_Card">
 
   <div  className="all_Tag_Details" key={tag.id}>
 
@@ -67,7 +72,9 @@ return (
         <button className="tag_Delete" onClick= {editButton}> Edit </button>
         <button className="tag_Edit" onClick= {deleteButton}> Delete </button> 
 </div>
+</article>  
+<div className="back_Icon" onClick={() => navigate("/trends")}> <MdArrowBackIos /> </div>
 
-</article>   
+</article> 
 );
 };

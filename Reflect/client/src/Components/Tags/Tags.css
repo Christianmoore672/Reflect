@@ -59,26 +59,34 @@
 
   /* Journal Details */
   .tag_Details_Card {
-    background-color: #b1bcb5;
+
+    /* background-color: #b1bcb5; */
     width: 750px;
     height: 150px;
     border-radius: 20px;
     padding: 30px;
     margin-top: 280px;
     margin-left: 350px;
+    position: absolute;
+    top: 50px;
   }
 
   .all_Tag_Details {
-    background-color: #c9d2cd;
+    
+    border: 2px solid black;
+    background-color: #f3f0f0;
     /* margin: 10px; */
     border-radius: 5px;
-    height: 50px;
+    height: 60px;
     margin-top: 15px;
     margin-left: 50px;
     width: 600px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
   }
 
   .tag_Content {
+    /* padding: 5px; */
+    font-family: 'Montserrat', sans-serif;
 
   }
 
@@ -91,15 +99,34 @@
   }
 
   .tag_Delete {
-    background-color: #f3933f;
-    border-radius: 5px;
-    margin: 5px;
+    border: 2px solid black;
+    background-color: #b2afa2;
+    /* z-index: 2; */
+    position: absolute;
+    top: 80%;
+    left: 64%; 
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
+    font-family: 'Marcellus', serif;
   }
 
   .tag_Edit {
-    background-color: #f3933f;
-    border-radius: 5px;
-    margin: 5px;
+    border: 2px solid black;
+    /* z-index: 2; */
+    position: absolute;
+    top: 80%;
+    left: 35%; 
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
+    font-family: 'Marcellus', serif;
   }
   
   .edit_Delete {
@@ -109,22 +136,26 @@
 
   /* Add Journal Form */
   .tag_Form_Container {
-    background-color: #b1bcb5;
+    /* background-color: #b1bcb5; */
     width: 500px;
     height: 250px;
     border-radius: 20px;
     padding: 30px;
     margin-top: 150px;
     margin-left: 450px;
+    position: absolute;
+    top: 50px;
   }
   .tag_Form {
+    border: 2px solid black;
     background-color: #c9d2cd;
     margin: 10px;
     border-radius: 5px;
     height: 150px;
     margin-top: 15px;
     padding: 15px;
-    width: 400px;
+    width: 450px;
+    box-shadow: 5px 4px 4px rgb(55, 52, 52);
   }
 
   .tag_Form_Group {
@@ -142,4 +173,24 @@
 
   .submit_Tag {
     margin-left: 320px;
+    position: absolute;
+    top: 51%;
+  }
+
+  .submit_Tag_Changes {
+    margin-left: 280px;
+    position: absolute;
+    top: 51%;
+    width: 135px;
+  }
+
+  .tag_Form__Title {
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .tag_Name_Input{
+    margin: 5px;
   }

@@ -18,7 +18,7 @@ CREATE TABLE [Journal] (
   [Id] integer PRIMARY KEY IDENTITY NOT NULL,
   [Title] nvarchar(255) NOT NULL,
   [Description] nvarchar(255) NOT NULL,
-  [Content] nvarchar(255),
+  [Content] nvarchar(3000),
   [UserProfileId] integer NOT NULL,
   [DateCreated] datetime
 )
@@ -45,7 +45,7 @@ CREATE TABLE [ResearchTopic] (
   [UserProfileId] integer NOT NULL,
   [FolderTitle] nvarchar(255) NOT NULL,
   [Note] text NOT NULL,
-  [Link] nvarchar(255),
+  [Link] nvarchar(500),
   [DateCreated] datetime NOT NULL,
 )
 GO

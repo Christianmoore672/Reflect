@@ -1,24 +1,16 @@
-Questions:
+To Do:
+- Make Logout Button Functional (Need Help)
+- Create Profile Area
+- Write out flow
+- adjust font sizes
+- write presentable data
 
-Problems:
+
+Major Bugs
+- Tags not posting to journals when button is pushed. 
 - Not redirecting to journal list when new journal is submitted & page has to be reloaded to show new on list
 - Title & description both changing when edited
 
+Minor Bugs
+- gifs repeating twice
 
-To Do:
-- Make Logout Button Functional (Need Help)
-- Create Profile Area if theres time 
-- Details pages design for each (1)
-- Research & tag form designs (2)
-- Create tag dropdown on journals allong with add option (3)
-- Add trend frequency functionality (Need Help)
-- Make buttons bump if thers time
-
-
-For Tags:
-- get a tag id 
-
-bridge table needs methods in a controller and methods in a repo
-
-
-tag/add/journal number

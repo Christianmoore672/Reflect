@@ -103,9 +103,6 @@ return (
                               onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
                               Submit Journal
                           </button>
-                          <button className="submit_Journal">
-                              Add A Tag
-                          </button>
                   </div>)
 
 }
