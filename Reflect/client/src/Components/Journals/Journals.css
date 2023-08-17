@@ -191,6 +191,31 @@
   font-family: 'Marcellus', serif;
   }
 
+  .journal_Tag_Container {
+    border: 2px solid black;
+    width: 520px;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 50px;
+    margin-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .journal_Tag_print {
+    background-color: #b7c4bd;
+    margin: 30px;
+    padding: 10px;
+    height: 50px;
+    width: fit-content;
+    border-radius: 5px;
+    border: 2px solid black;
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
+  
+  }
+
   /* edit journal form */
   .edit_Journal_Form_Container {
     width: 750px;

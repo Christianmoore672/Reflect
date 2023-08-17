@@ -20,8 +20,15 @@ namespace Reflect.Controllers
         //[HttpGet("{id}")]
         //public IActionResult GetAllJournalTags(int id)
         //{
-         //   return Ok(_journalTagRepository.GetAllJournalTagsByJournalId(id));
+        //   return Ok(_journalTagRepository.GetAllJournalTagsByJournalId(id));
         //}
+
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_journalTagRepository.GetAllJournalTags());
+        }
 
         [HttpGet("{id}")]
         public IActionResult GetAllJournalTags(int id)

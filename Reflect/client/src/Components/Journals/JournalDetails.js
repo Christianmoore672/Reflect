@@ -13,20 +13,18 @@ import { Card, ListGroup, ListGroupItem, ListGroupItemHeading } from "reactstrap
 
 export const JournalDetails = () => {
     const [journal, setJournal] = useState();
-    const [tag, setTag ] = useState();
+    const [tag, setTag ] = useState([]);
+    const [journalTag, setjournalTag] = useState([])
     const { id } = useParams();
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
 
-    // Tag stuff //
-    // const [showTags, setShowTags] = useState(false);
 
-    // const toggleTags = () => {
-    //   setShowTags((prevState) => !prevState);
     useEffect(() => {
       getJournalById(id).then(setJournal);
-      getAllJournalTags(id).then(setTag);
+      getAllJournalTags(id).then(setjournalTag);
+      getAllTags().then(setTag);
          
   
   
@@ -38,15 +36,6 @@ export const JournalDetails = () => {
 
     // ...........................
     
-    
-    // useEffect(() => {
-    //   getJournalById(id).then(setJournal);
-    // }, [id]);
-
-    // if (!journal) {
-    //   return null;
-    // };
-
     
 
     const editButton = () => {
@@ -91,28 +80,12 @@ return (
         <h3> {journal.description} </h3>
         <h4> {journal.content} </h4>
       </div> 
-      {/* <section>
+      {/* ternary operator that finds the tagIds from journal tag then maps through tags that match that idea and prints the name */}
+      <div className="journal_Tag_Container">
+      Tags: {journalTag?.map((singleJournalTag) => tag?.map((singleTag) => {
 
-<ListGroup flush>
-    <ListGroupItemHeading>Tags:</ListGroupItemHeading>
-    {
-        journal?.tags?.length
-            ? journal?.tags?.map((tag) => (<>
-                <Card key={tag.id}>
-                    <ListGroup flush>
-                        <ListGroupItem>
-                            <h6>{tag.name}</h6><br />
-                        </ListGroupItem>
-                    </ListGroup>
-                </Card></>
-            ))
-            : <h6>No tags have been associated with this journal</h6>
-    }
-</ListGroup>
-
-</section> */}
-      <div>
-      Tags: {journal?.tags?.map((tag) => <p>{tag.name}</p>)}
+        {return (singleJournalTag.tagId === singleTag.id) ?  <p className="journal_Tag_print">{singleTag.name} - </p> :  ""} 
+      }))} 
       </div>
 
       <h6 className="date_User">
@@ -126,7 +99,6 @@ return (
         {/* <button className="add_tag_Journal"> <Link to={`/tag/add/${id}`}>Add Tag</Link></button> {showTags && <TagList />} */}
         {/* <button className="add_tag_Journal"> <Link to={`/journal/${id}/tags`}> Manage Tags</Link></button> */}
         < button className="add_tag_Journal" onClick={(addtag) => {navigate(`/journal/${id}/tags`)}}>Manage Tags</button>
-    {/* <button onClick={toggleTags}> {showTags ? "Hide Tags" : "View Tags"} </button> */}
 
     
 

@@ -13,7 +13,38 @@ namespace Reflect.Repositories
     public class JournalTagRepository : BaseRepository, IJournalTagRepository
     {
         public JournalTagRepository(IConfiguration configuration) : base(configuration) { }
-    
+
+        public List<JournalTag> GetAllJournalTags()
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                        SELECT journalTag.Id, journalTag.JournalId, journalTag.TagId
+                        FROM JournalTag journalTag;"
+                ;
+
+                var reader = cmd.ExecuteReader();
+
+                var journalTags = new List<JournalTag>();
+
+                while (reader.Read())
+                {
+                    journalTags.Add(new JournalTag()
+                    {
+                        Id = DbUtils.GetInt(reader, "Id"),
+                        JournalId = DbUtils.GetInt(reader, "JournalId"),
+                        TagId = DbUtils.GetInt(reader, "TagId"),
+                    }
+                    );
+                }
+
+                reader.Close();
+
+                return journalTags;
+            }
+        }
         public List<JournalTag> GetAllJournalTagsByJournalId(int id)
         {
             using (var conn = Connection)
