@@ -13,6 +13,7 @@ import { ResearchTopicEdit } from "./Research/ResearchEdit";
 import { TagDetails } from "./Tags/TagDetails";
 import { TagForm } from "./Tags/TagForm";
 import { TagEdit } from "./Tags/TagEdit";
+import { JournalTags } from "./Journals/JournalTags";
 
 export default function ApplicationViews() {
 
@@ -31,6 +32,9 @@ export default function ApplicationViews() {
         <Route path="/journal/edit/:id" element={<JournalEdit />} />
         <Route path="/research/edit/:id" element={<ResearchTopicEdit />} />
         <Route path="/tag/edit/:id" element={<TagEdit />} />
+
+        
+      <Route path ="/journal/:id/tags" element={<JournalTags />} />
       </Routes>
    );
 

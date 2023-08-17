@@ -18,9 +18,9 @@ export const addJournal = (singleJournal) => {
   });
 };
 
-export const getUserJournals = (id) => {
-  return fetch(`${baseUrl}/GetUserJournals/${id}`).then((res) => res.json());
-};
+// export const getUserJournals = (id) => {
+//   return fetch(`${baseUrl}/GetUserJournals/${id}`).then((res) => res.json());
+// };
 
 // is this written correctly? not getting journal info :(
 export const getJournalById =(id) => {
@@ -52,4 +52,10 @@ export const addJournalTag = (journalTag) => {
     },
     body: JSON.stringify(journalTag),
   });
+};
+
+
+export const getAllJournalTags = (id) => {
+  return fetch(`${baseUrl}/journalTag/${id}`)
+      .then((res) => res.json())
 };

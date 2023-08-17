@@ -1,11 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteJournal, getJournalById } from "../../Managers/JournalManager";
+import {  deleteJournal, getJournalById} from "../../Managers/JournalManager";
+import { addJournalTag } from "../../Managers/JournalTagManager";
 import "./Journals.css";
 import { Link } from "react-router-dom";
 import TagList from "../Tags/TagList";
+import { getAllTags } from "../../Managers/TagManager";
 import Beige from "../Beige.png";
+import { Card, ListGroup, ListGroupItem, ListGroupItemHeading } from "reactstrap";
 
 export const JournalDetails = () => {
     const [journal, setJournal] = useState();
@@ -28,9 +31,12 @@ export const JournalDetails = () => {
       getJournalById(id).then(setJournal);
     }, [id]);
   
+
     if (!journal) {
       return null;
-    }
+    };
+
+    
 
     const editButton = () => {
       if (journal.userProfileId === reflectUserObject.id) {
@@ -61,9 +67,10 @@ export const JournalDetails = () => {
 
 return (
   <article>
+    
+  <div className="journal_Title" > <b>Title: {journal.title}</b> </div>
   <img className="beige" src={Beige} alt="" />
   
-  <div className="journal_Title"> <b>Title: {journal.title}</b> </div>
   <article className="journal_Details_Card">
   
 
@@ -78,7 +85,26 @@ return (
         Created on: {journal.dateCreated}
         {/* Created by: {journal.userProfile?.name} */}
       </h6>
+
+      <ListGroup flush>
+                    <ListGroupItemHeading>Tags</ListGroupItemHeading>
+                    {
+                        journal?.tags?.length
+                            ? journal?.tags?.map((t) => (<>
+                                <Card key={t.id}
+                                >
+                                    <ListGroup flush>
+                                        <ListGroupItem>
+                                            <h6>{t.name}</h6><br />
+                                        </ListGroupItem>
+                                    </ListGroup>
+                                </Card></>
+                            ))
+                            : <h6>No tags have been associated with this journal</h6>
+                    }
+ </ListGroup>
   </div> 
+  
 
 
 
@@ -86,11 +112,16 @@ return (
         
 </div>
 
+
+
 </article> 
         <button className="journal_Delete" onClick= {editButton}> Edit </button>
         <button className="journal_Edit" onClick= {deleteButton}> Delete </button> 
-        <button className="add_tag_Journal"> <Link to={`/tag/add/${id}`}>Add Tag</Link></button> {showTags && <TagList />}
+        {/* <button className="add_tag_Journal"> <Link to={`/tag/add/${id}`}>Add Tag</Link></button> {showTags && <TagList />} */}
+        <button className="add_tag_Journal"> <Link to={`/journal/${id}/tags`}> Manage Tags</Link></button>
     {/* <button onClick={toggleTags}> {showTags ? "Hide Tags" : "View Tags"} </button> */}
+
+    
 </article>  
 );
 };

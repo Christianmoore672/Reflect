@@ -23,16 +23,7 @@ namespace Reflect.Controllers
             return Ok(_journalRepository.GetAllJournals());
         }
 
-        [HttpGet("GetUsersJournals/{id}")]
-        public IActionResult Get(int id)
-        {
-            List<Journal> journals = _journalRepository.GetJournalsByUserProfileId(id);
-            if (journals == null)
-            {
-                return NotFound();
-            }
-            return Ok(journals);
-        }
+        
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -42,6 +33,18 @@ namespace Reflect.Controllers
                 return NotFound();
             }
             return Ok(journal);
+        }
+
+
+        [HttpGet("GetUsersJournals/{id}")]
+        public IActionResult Get(int id)
+        {
+            List<Journal> journals = _journalRepository.GetJournalsByUserProfileId(id);
+            if (journals == null)
+            {
+                return NotFound();
+            }
+            return Ok(journals);
         }
 
         [HttpPost]
@@ -70,12 +73,6 @@ namespace Reflect.Controllers
             return NoContent();
         }
 
-        [HttpPost("journalTag")]
-        public IActionResult Post(JournalTag journalTag)
-        {
-            _journalRepository.AddTag(journalTag);
-            return CreatedAtAction("Get", new { id = journalTag.Id }, journalTag);
-        }
 
     }
 }

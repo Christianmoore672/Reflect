@@ -5,10 +5,14 @@ import { addJournal } from "../../Managers/JournalManager";
 
 export const JournalForm = () => {
     const localReflectUser = localStorage.getItem("userProfile");
+    const [tags, setTags] = useState([]);
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
 
-
+    const getAllTags = () => {
+        getAllTags().then(c => setTags(c));
+    };
+    
     const [journal, update] = useState({
         title: "",
         description:"",
