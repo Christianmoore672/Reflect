@@ -13,6 +13,7 @@ namespace Reflect
 
             builder.Services.AddControllers();
             builder.Services.AddTransient<IJournalRepository, JournalRepository>();
+            builder.Services.AddTransient<IJournalTagRepository, JournalTagRepository>();
             builder.Services.AddTransient<IUserProfileRepository, UserProfileRepository>();
             builder.Services.AddTransient<IResearchTopicRepository, ResearchTopicRepository>();
             builder.Services.AddTransient<ITagRepository, TagRepository>();

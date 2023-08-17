@@ -17,59 +17,62 @@ export const JournalTags = ({}) => {
     const { id } = useParams();
 
     const getTags = () => {
-        getAllTags().then(allTags => setTags(allTags));
+        getAllTags().then(tags => setTags(tags));
     };
-
-    useEffect(() => {
-        getTags();
-    }, []);
-
-    const getTagsForThisJournal = () => {
-        getAllJournalTags(id).then(allJournalTags => {
-            setJournalTags(allJournalTags);
-        } )
-    };
-
-    useEffect(() => {
-        getTagsForThisJournal();
-    }, []);
 
     const getJournals = () => {
         getJournalById(id).then(journal => setJournal(journal));
     };
 
-
     useEffect(() => {
-
+        getTags();
         getJournals();
     }, []);
+
+    // const getTagsForThisJournal = () => {
+    //     getAllJournalTags(id).then(allJournalTags => {
+    //         setJournalTags(allJournalTags);
+    //     } )
+    // };
+
+    // useEffect(() => {
+    //     getTagsForThisJournal();
+    // }, []);
+
+   
+
+
+    // useEffect(() => {
+
+    //     getJournals();
+    // }, []);
 
 
 
     return (
+        // <article></article>
         <div className="">
             <h1>{journal.title}</h1>
             
                 <CardLink href={`/journal/${id}`}>
                     Go back to Journal
                 </CardLink>
-            
-
+        
             <div className="">
-                <Table>
+            <Table>
                     <thead>
                         <tr>
                             <th>
                                 Tags
                             </th>
-                            <th>Action</th>
+                          
                         </tr>
                     </thead>
+                   
                     {tags.map((tag) => (
                         <TagAndButton 
                         tag={tag}
-                        id={id}
-                        journalTags={journalTags}
+                        post={journal}
                          />
                     ))}
 
@@ -77,3 +80,4 @@ export const JournalTags = ({}) => {
             </div>
         </div>)
 }
+export default JournalTags;

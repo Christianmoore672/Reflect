@@ -17,15 +17,26 @@ namespace Reflect.Controllers
             _journalTagRepository = journalTagRepository;
         }
 
+        //[HttpGet("{id}")]
+        //public IActionResult GetAllJournalTags(int id)
+        //{
+         //   return Ok(_journalTagRepository.GetAllJournalTagsByJournalId(id));
+        //}
+
         [HttpGet("{id}")]
         public IActionResult GetAllJournalTags(int id)
         {
-            return Ok(_journalTagRepository.GetAllJournalTagsByJournalId(id));
+            var journalTags = _journalTagRepository.GetAllJournalTagsByJournalId(id);
+            if (journalTags == null)
+            {
+                return NotFound(); 
+            }
+            return Ok(journalTags); 
         }
 
 
 
-        [HttpPost("journalTag")]
+        [HttpPost]
         public IActionResult Post(JournalTag journalTag)
         {
             _journalTagRepository.Add(journalTag);

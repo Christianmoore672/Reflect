@@ -89,3 +89,10 @@ INSERT INTO [ResearchTopic]
 VALUES
   (1, 1, 'Tests', 'testing stuff', 'https://media.giphy.com/media/j609LflrIXInkLNMts/giphy.gif', '07-28-2023');
 SET IDENTITY_INSERT [ResearchTopic] OFF
+
+SET IDENTITY_INSERT [JournalTag] ON
+INSERT INTO [JournalTag]
+  ([Id], [TagId], [JournalId])
+VALUES
+  (1, 1, 1);
+SET IDENTITY_INSERT [JournalTag] OFF

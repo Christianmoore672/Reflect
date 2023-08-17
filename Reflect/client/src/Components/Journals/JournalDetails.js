@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {  deleteJournal, getJournalById} from "../../Managers/JournalManager";
-import { addJournalTag } from "../../Managers/JournalTagManager";
+import { addJournalTag, getAllJournalTags } from "../../Managers/JournalTagManager";
 import "./Journals.css";
 import { Link } from "react-router-dom";
 import TagList from "../Tags/TagList";
@@ -12,29 +12,39 @@ import { Card, ListGroup, ListGroupItem, ListGroupItemHeading } from "reactstrap
 
 export const JournalDetails = () => {
     const [journal, setJournal] = useState();
+    const [tag, setTag ] = useState();
     const { id } = useParams();
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
 
     // Tag stuff //
-    const [showTags, setShowTags] = useState(false);
+    // const [showTags, setShowTags] = useState(false);
 
-    const toggleTags = () => {
-      setShowTags((prevState) => !prevState);
+    // const toggleTags = () => {
+    //   setShowTags((prevState) => !prevState);
+    useEffect(() => {
+      getJournalById(id).then(setJournal)
+      getAllJournalTags(id).then(setTag);
+         
+  
+  
+    }, [])
+  
+    if (!journal) {
+      return null;
     };
 
     // ...........................
     
     
-    useEffect(() => {
-      getJournalById(id).then(setJournal);
-    }, [id]);
-  
+    // useEffect(() => {
+    //   getJournalById(id).then(setJournal);
+    // }, [id]);
 
-    if (!journal) {
-      return null;
-    };
+    // if (!journal) {
+    //   return null;
+    // };
 
     
 
@@ -81,12 +91,16 @@ return (
         <h4> {journal.content} </h4>
       </div> 
 
+      <div>
+      Tag: {journal.tags.map((tag) => <p>{tag.name}</p>)}
+      </div>
+
       <h6 className="date_User">
         Created on: {journal.dateCreated}
         {/* Created by: {journal.userProfile?.name} */}
       </h6>
 
-      <ListGroup flush>
+      {/* <ListGroup flush>
                     <ListGroupItemHeading>Tags</ListGroupItemHeading>
                     {
                         journal?.tags?.length
@@ -102,7 +116,7 @@ return (
                             ))
                             : <h6>No tags have been associated with this journal</h6>
                     }
- </ListGroup>
+      </ListGroup> */}
   </div> 
   
 
@@ -118,7 +132,8 @@ return (
         <button className="journal_Delete" onClick= {editButton}> Edit </button>
         <button className="journal_Edit" onClick= {deleteButton}> Delete </button> 
         {/* <button className="add_tag_Journal"> <Link to={`/tag/add/${id}`}>Add Tag</Link></button> {showTags && <TagList />} */}
-        <button className="add_tag_Journal"> <Link to={`/journal/${id}/tags`}> Manage Tags</Link></button>
+        {/* <button className="add_tag_Journal"> <Link to={`/journal/${id}/tags`}> Manage Tags</Link></button> */}
+        < button className="add_tag_Journal" onClick={(addtag) => {navigate(`/journal/${id}/tags`)}}>Manage Tags</button>
     {/* <button onClick={toggleTags}> {showTags ? "Hide Tags" : "View Tags"} </button> */}
 
     
