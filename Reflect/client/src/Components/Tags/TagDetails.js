@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { deleteTag, getTagById } from "../../Managers/TagManager";
 import "./Tags.css";
 import { MdArrowBackIos } from 'react-icons/md';
+import { HiTrash, HiPencilAlt } from 'react-icons/hi';
 import Beige from "../Beige.png";
 
 export const TagDetails = () => {
@@ -59,9 +60,9 @@ return (
   <div  className="all_Tag_Details" key={tag.id}>
 
       <div className="tag_Content">
-        <h2> <b>Tag Name: </b> 
+        <div> <b> Tag Name: </b> 
         {tag.name}
-        </h2>
+        </div>
       </div> 
 
   </div> 
@@ -69,8 +70,8 @@ return (
 
 
 <div className="edit_Delete">
-        <button className="tag_Delete" onClick= {editButton}> Edit </button>
-        <button className="tag_Edit" onClick= {deleteButton}> Delete </button> 
+        <button className="tag_Delete" onClick= {editButton}> <HiPencilAlt /> </button>
+        <button className="tag_Edit" onClick= {deleteButton}> <HiTrash /> </button> 
 </div>
 </article>  
 <div className="back_Icon" onClick={() => navigate("/trends")}> <MdArrowBackIos /> </div>

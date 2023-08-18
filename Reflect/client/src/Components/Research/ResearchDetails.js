@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { deleteResearchTopic, getResearchTopicById  } from "../../Managers/ResearchManager";
 import "./Research.css";
 import Beige from "../Beige.png";
+import { MdArrowBackIos } from 'react-icons/md'
+import { HiTrash, HiPencilAlt } from 'react-icons/hi';
 
 export const ResearchDetails = () => {
     const [researchTopic, setResearchTopic] = useState();
@@ -49,27 +51,28 @@ export const ResearchDetails = () => {
           }}
 
 return (
-  <article>
+  <article className="parent"
+  >
   <img className="beige" src={Beige} alt="" />
 
-  <div className="research_Title"> <b>Title: {researchTopic.folderTitle}</b> </div>
+  <div className="journal_Title"> <b>Title: {researchTopic.folderTitle}</b> </div>
   <article className="research_Details_Card">
   
 
   <div  className="all_Research_Details" key={researchTopic.id}>
 
-      <div className="research_Content">
+      <div>
         <h5> {researchTopic.note} </h5>
         <h6> {researchTopic.link} </h6>
       </div> 
 
   </div> 
   <div className="edit_Delete">
-        
+  <button className="research_Delete" onClick= {editButton}> <HiPencilAlt /> </button>
+<button className="research_Edit" onClick= {deleteButton}> <HiTrash /> </button>   
 </div>
 </article> 
-<button className="research_Delete" onClick= {editButton}> Edit </button>
-        <button className="research_Edit" onClick= {deleteButton}> Delete </button>  
+<div className="back_Icon" onClick={() => navigate("/research")}> <MdArrowBackIos /> </div>
 </article> 
 
 );

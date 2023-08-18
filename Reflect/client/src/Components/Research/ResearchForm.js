@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { addResearchTopics } from "../../Managers/ResearchManager";
-
+import Beige from "../Beige.png";
+import { MdArrowBackIos } from 'react-icons/md'
 
 export const ResearchForm = () => {
     const localReflectUser = localStorage.getItem("userProfile");
@@ -38,13 +39,16 @@ export const ResearchForm = () => {
 };
 
 return (
-    <div className="research_Form_Container">
-    <form className="research_Form">
-        <h2 className="research_Form__Title">Add New Research Folder</h2>
+    <article>
+    <img className="beige" src={Beige} alt="" />
+
+    <div className="edit_Journal_Form_Container">
+    <form className="journal_Form">
+        <h2 className="journal_Form__Title">Add New Research Folder</h2>
         <fieldset>
-            <div className="research_Form_Group">
-                <label htmlFor="folderitle">Folder Title:</label>
-                <input
+            <div className="journal_Form_Group">
+                <label htmlFor="folderitle" className="title">Folder Title:</label>
+                <input className="title_Input"
                     required autoFocus
                     type="text"
                     id="folderTitle"
@@ -59,9 +63,9 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="research_Form_Group">
-                <label htmlFor="note">Notes:</label>
-                <textarea className="research_Note"
+            <div className="journal_Form_Group">
+                <label htmlFor="note" className="content">Notes:</label>
+                <textarea className="journal_Content"
                     required autoFocus
                     type="text"
                     id="note"
@@ -79,9 +83,9 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="research_Form_Group">
-                <label htmlFor="link">Link:</label>
-                <input
+            <div className="journal_Form_Group">
+                <label htmlFor="link" className="description">Link:</label>
+                <input className="description_Input"
                     required autoFocus
                     type="text"
                     id="link"
@@ -101,6 +105,8 @@ return (
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
             Create Folder
         </button>
-</div>)
+</div>
+<div className="back_Icon" onClick={() => navigate("/research")}> <MdArrowBackIos /> </div>
+</article>)
 
 }

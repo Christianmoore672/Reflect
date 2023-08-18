@@ -10,6 +10,7 @@ import { getAllTags } from "../../Managers/TagManager";
 import Beige from "../Beige.png";
 import { MdArrowBackIos } from 'react-icons/md'
 import { Card, ListGroup, ListGroupItem, ListGroupItemHeading } from "reactstrap";
+import moment from "moment/moment";
 
 export const JournalDetails = () => {
     const [journal, setJournal] = useState();
@@ -35,7 +36,6 @@ export const JournalDetails = () => {
     };
 
     // ...........................
-    
     
 
     const editButton = () => {
@@ -65,10 +65,17 @@ export const JournalDetails = () => {
           
           }}
 
+    const formattedTime = moment(journal.dateCreated).format('MM/DD/YYYY');
+
+    console.log(formattedTime);
+
 return (
   <article className="parent">
     
-  <div className="journal_Title" > <b>{journal.title}</b> </div>
+  <div className="journal_Title" > <b>{journal.title}</b></div>
+  <div className="date_User">
+        Created on: {formattedTime}
+     </div>
   <img className="beige" src={Beige} alt="" />
   
   <article className="journal_Details_Card">
@@ -76,28 +83,28 @@ return (
 
   <div  className="all_Journal_Details" key={journal.id}>
 
-      <div className="journal_Content">
-        <h3> {journal.description} </h3>
-        <h4> {journal.content} </h4>
+      <div className="">
+        <h3 className="journal_Description"> {journal.description} </h3>
+        <div className="journal_Content"> {journal.content} </div>
       </div> 
       {/* ternary operator that finds the tagIds from journal tag then maps through tags that match that idea and prints the name */}
-      <div className="journal_Tag_Container">
-      Tags: {journalTag?.map((singleJournalTag) => tag?.map((singleTag) => {
+      
 
-        {return (singleJournalTag.tagId === singleTag.id) ?  <p className="journal_Tag_print">{singleTag.name} - </p> :  ""} 
+      
+  </div> 
+
+  <div>
+  <div className="journal_Tag_Container">
+       {journalTag?.map((singleJournalTag) => tag?.map((singleTag) => {
+
+        {return (singleJournalTag.tagId === singleTag.id) ?  <p className="journal_Tag_print">{singleTag.name}  </p> :  ""} 
       }))} 
       </div>
-
-      <h6 className="date_User">
-        Created on: {journal.dateCreated}
-     </h6>
-  </div> 
+      </div>
 
 </article> 
         <button className="journal_Delete" onClick= {editButton}> Edit </button>
         <button className="journal_Edit" onClick= {deleteButton}> Delete </button> 
-        {/* <button className="add_tag_Journal"> <Link to={`/tag/add/${id}`}>Add Tag</Link></button> {showTags && <TagList />} */}
-        {/* <button className="add_tag_Journal"> <Link to={`/journal/${id}/tags`}> Manage Tags</Link></button> */}
         < button className="add_tag_Journal" onClick={(addtag) => {navigate(`/journal/${id}/tags`)}}>Manage Tags</button>
 
     

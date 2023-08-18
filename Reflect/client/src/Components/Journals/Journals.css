@@ -99,6 +99,7 @@
 
   .more_Button {
     float:right;
+    box-shadow: 3px 2px 1px rgb(55, 52, 52);
   }
 
 
@@ -113,14 +114,14 @@
 
   .journal_Details_Card {
     /* background-color: #b1bcb5; */
-    width: 650px;
+    width: 800px;
     height: 500px;
     border-radius: 20px;
     padding: 30px;
     margin: 50px;
-    margin-left: 450px;
+    margin-left: 390px;
     position: absolute;
-    top: 50px;
+    top: 30px;
     /* left: 300px; */
     /* width: 900px; */
   }
@@ -128,7 +129,7 @@
   .journal_Title {
     font-family: 'Marcellus', serif;
     position: absolute;
-    top: 8%;
+    top: 6%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 60px;
@@ -136,14 +137,28 @@
   }
 
   .all_Journal_Details {
-    background-color: #c9ccd2;
+    background-color: #c9c3c6;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
     overflow-y: scroll;
-    height: 450px;
+    height: 390px;
     margin-top: 15px;
   }
+
+  .date_User {
+    position: absolute;
+    top: 11%;
+    left: 45%;
+  }
+
+  .journal_Description {
+
+  }
+
+.journal_Content {
+  
+}
 
   .journal_Delete {
     border: 2px solid black;
@@ -192,23 +207,24 @@
   }
 
   .journal_Tag_Container {
-    border: 2px solid black;
-    width: 520px;
-    height: fit-content;
+    /* border: 2px solid black; */
+    width: 659px;
+    height: 100px;
     border-radius: 20px;
-    padding: 30px;
-    margin: 50px;
-    margin-left: 5px;
+    /* padding: 30px; */
+    /* margin: 50px; */
+    margin-left: 33px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    overflow-x: scroll;
 
   }
 
   .journal_Tag_print {
     background-color: #b7c4bd;
-    margin: 30px;
-    padding: 10px;
-    height: 50px;
+    margin: 15px;
+    padding: 8px;
+    height: fit-content;
     width: fit-content;
     border-radius: 5px;
     border: 2px solid black;
@@ -228,10 +244,10 @@
     top: -30px;
   }
 
-  .submit_Journal_Edit {
-    margin-left: 530px;
+  .submit_Journal {
+    margin-left: 550px;
     position: absolute;
-    top: 122%;
+    top: 132%;
     width: 135px;
     border-radius: 5px;
   }
@@ -267,6 +283,7 @@
   .title_Input {
     width: 390px;
     border-radius: 5px;
+    
   }
 
   .description_Input {
@@ -278,6 +295,7 @@
     height: 390px;
     width: 630px;
     border-radius: 5px;
+    border-color: black;
   }
 
   .title {

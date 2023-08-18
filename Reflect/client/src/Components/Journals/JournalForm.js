@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { addJournal } from "../../Managers/JournalManager";
-
+import Beige from "../Beige.png";
+import { MdArrowBackIos } from 'react-icons/md'
 
 export const JournalForm = () => {
     const localReflectUser = localStorage.getItem("userProfile");
@@ -42,25 +43,28 @@ export const JournalForm = () => {
 };
 
 return (
-    <div className="journal_Form_Container">
-                      <form className="journal_Form">
-                          <h2 className="journal_Form__Title">Add New Journal</h2>
-                          <fieldset>
-                              <div className="journal_Form_Group">
-                                  <label htmlFor="Title" className="title">Title:</label>
-                                  <input className="title_Input"
-                                      required autoFocus
-                                      type="text"
-                                      id="title"
-                                      value={journal.title}
-                                      onChange={
-                                          (evt) => {
-                                              const copy = {...journal}
-                                              copy.title = evt.target.value
-                                          update(copy)
-                                          }
-                                      } />
-                              </div>
+    <article>
+    <img className="beige" src={Beige} alt="" />
+    
+    <div className="edit_Journal_Form_Container">
+    <form className="journal_Form">
+        <h2 className="journal_Form__Title">Add New Journal</h2>
+        <fieldset>
+            <div className="journal_Form_Group">
+                <label htmlFor="Title" className="title">Title:</label>
+                <input className="title_Input"
+                        required autoFocus
+                        type="text"
+                        id="title"
+                        value={journal.title}
+                        onChange={
+                             (evt) => {
+                                const copy = {...journal}
+                                copy.title = evt.target.value
+                            update(copy)
+                             }
+                         } />
+                </div>
                           </fieldset>
                           <fieldset>
                               <div className="journal_Form_Group">
@@ -103,6 +107,8 @@ return (
                               onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
                               Submit Journal
                           </button>
-                  </div>)
+                  </div>
+                  <div className="back_Icon" onClick={() => navigate("/journals")}> <MdArrowBackIos /> </div>
+                  </article>)
 
 }

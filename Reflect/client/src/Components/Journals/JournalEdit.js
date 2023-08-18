@@ -108,7 +108,7 @@ return (
             </div>
         </fieldset>
     </form>
-    <button className="submit_Journal_Edi"
+    <button className="submit_Journal"
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
             Submit Changes
         </button>

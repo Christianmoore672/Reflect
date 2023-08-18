@@ -81,9 +81,8 @@ export const JournalTags = ({}) => {
                     </div>
 
                 </Table>
-             <button className="new_Tag_Button" >
-                New Tag
-            </button> 
+             
+            <button onClick={() => navigate("/tag/newTag")} className="new_Tag_Button">New Tag</button> 
             </div>
         </div>)
 }

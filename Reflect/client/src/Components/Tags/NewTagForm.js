@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { editTag } from "../../Managers/TagManager";
-import { getTagById } from "../../Managers/TagManager";
+import { useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import { addTag } from "../../Managers/TagManager";
+import { addJournalTag } from "../../Managers/JournalManager";
 import { MdArrowBackIos } from 'react-icons/md';
 import Beige from "../Beige.png";
 
-export const TagEdit = () =>
-{
+export const NewTagForm = () => {
+    
     const localReflectUser = localStorage.getItem("userProfile");
     const reflectUserObject = JSON.parse(localReflectUser)
     const navigate = useNavigate()
-    const { id } = useParams()
+    const { id } = useParams();
 
     const [tag, update] = useState({
         name: "",
@@ -18,38 +18,39 @@ export const TagEdit = () =>
 
     })
     
-    useEffect(() => {
-        getTagById(id)
-        .then((tagArray) => {
-            update(tagArray)
-        })
-    }, [id]);
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        const tagToEdit = {
-            Id: parseInt(id),
+        const tagToSendToAPI = {
             Name: tag.name,
             UserProfileId: reflectUserObject.id
-        }
+        };
 
-       return editTag(tagToEdit)
-        .then(() => {
-            navigate("/trends")
+
+        return addTag(tagToSendToAPI)
+        .then((returnTag) => {
+            const newJournalTag = {
+                    tagId: returnTag.id,
+                    journalId: +id
+            }
+            addJournalTag(newJournalTag)
+            .then(() => {
+                navigate("/journals")
+            })
         })
+
 };
 
-
 return (
-    <article>
-     <img className="beige" src={Beige} alt="" />
+<article>
+<img className="beige" src={Beige} alt="" />
     <div className="tag_Form_Container">
     <form className="tag_Form">
-    <h2 className="tag_Form__Title">Edit Tag</h2>
-    <fieldset>
+        <h2 className="tag_Form__Title">Add New Tag</h2>
+        <fieldset>
             <div className="tag_Form_Group">
-                <label htmlFor="tag_Name">Tag Name:</label>
+                <label htmlFor="Name">Tag Name:</label>
                 <input className="tag_Name_Input"
                     required autoFocus
                     type="text"
@@ -63,15 +64,15 @@ return (
                         }
                     } />
             </div>
-            <button className="submit_Tag_Edit"
-            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
-            Submit Changes
-            </button>
         </fieldset>
-        </form>
-   
+    </form>
+    <button className="submit_Tag"
+            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
+            Submit Tag
+        </button>
+
 </div>
-<div className="back_Icon" onClick={() => navigate("/trends")}> <MdArrowBackIos /> </div>
+{/* <div className="back_Icon" onClick={() => navigate("/journal/${id}/tags")}> <MdArrowBackIos /> </div> */}
 </article>)
 
 }
