@@ -35,7 +35,7 @@ CREATE TABLE [UserProfile] (
   [Id] integer PRIMARY KEY identity NOT NULL,
   [Name] nvarchar(255) NOT NULL,
   [Email] nvarchar(255) NOT NULL,
-  [ImageUrl] nvarchar(255),
+  [ImageUrl] nvarchar(500),
 )
 GO
 

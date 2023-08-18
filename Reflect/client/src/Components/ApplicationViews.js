@@ -17,6 +17,7 @@ import { JournalTags } from "./Journals/JournalTags";
 import Logout from "./Logout";
 import Login from "./Login";
 import { NewTagForm } from "./Tags/NewTagForm";
+import { UserProfileDetails } from "./UserProfiles/UserProfileDetails";
 
 export default function ApplicationViews() {
 
@@ -35,12 +36,12 @@ export default function ApplicationViews() {
         <Route path="/journal/edit/:id" element={<JournalEdit />} />
         <Route path="/research/edit/:id" element={<ResearchTopicEdit />} />
         <Route path="/tag/edit/:id" element={<TagEdit />} />
-        
         <Route path="/tag/newTag" element={<NewTagForm />} />
-
-
-        
       <Route path ="/journal/:id/tags" element={<JournalTags />} />
+
+
+      
+      <Route path="/userprofile" element={<UserProfileDetails />} />
       </Routes>
    );
 

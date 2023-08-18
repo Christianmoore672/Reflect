@@ -9,5 +9,6 @@ namespace Reflect.Repositories
         List<UserProfile> GetAll();
         UserProfile GetById(int id);
 
+        void UpdateProfileImage(UserProfile userProfile);
     }
 }

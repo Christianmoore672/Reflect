@@ -36,7 +36,7 @@ export const NewTagForm = () => {
             }
             addJournalTag(newJournalTag)
             .then(() => {
-                navigate("/journals")
+                navigate(-1)
             })
         })
 

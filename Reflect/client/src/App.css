@@ -2,6 +2,19 @@
   @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Marcellus&family=Montserrat:wght@300&family=Open+Sans:wght@300;400&family=Reem+Kufi:wght@400;500;600;700&family=Roboto+Condensed:wght@300&display=swap');
 /* Login & Register */
 
+.user_Profile {
+
+}
+
+.profile_Container {
+height: 500px;
+width: 500px;
+position: absolute;
+  top: -750px;
+  left: 550px;
+  box-shadow: 5px 4px 4px rgb(55, 52, 52);
+}
+
 .login_Container {
   /* background-color: #76857c; */
   position: absolute;

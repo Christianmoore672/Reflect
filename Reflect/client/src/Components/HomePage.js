@@ -41,7 +41,7 @@ export default function Reflect({isLoggedIn, setIsLoggedIn}) {
           <button onClick={() => navigate("/journals")} className="journal_Button">JOURNAL</button>
           <button onClick={() => navigate("/trends")}className="trends_Button">MY TRENDS</button>
           <button onClick={() => navigate("/research")} className="research_Button">RESEARCH</button>
-          <button onClick={() => navigate("/")} className="profile_Button">MY PROFILE</button>
+          <button onClick={() => navigate("/userprofile")} className="profile_Button">MY PROFILE</button>
       </div>
       <div className="child2">
       <div className="home_gif" ref={container}></div>  
