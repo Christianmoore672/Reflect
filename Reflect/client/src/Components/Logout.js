@@ -21,8 +21,8 @@ export default function Logout({isLoggedIn, setIsLoggedIn}) {
                       }}></a>
                 
                 </>
-              }
-        <BiLogOut />
+              } 
+        <BiLogOut /> 
       </div>
     );
   }

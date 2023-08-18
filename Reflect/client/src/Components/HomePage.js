@@ -11,7 +11,7 @@ import { logout } from '../Managers/UserProfileManger';
 import Logout from "./Logout";
 
 
-export default function Reflect() {
+export default function Reflect({isLoggedIn, setIsLoggedIn}) {
 
   const container = useRef(null)
   const navigate = useNavigate()
@@ -47,8 +47,8 @@ export default function Reflect() {
       <div className="home_gif" ref={container}></div>  
       </div>
     </article>
-    <div className="logout_Icon" onClick={() => { }}> 
-        <BiLogOut /> </div>
+    {/* <div className="logout_Icon"> 
+        <BiLogOut /> </div> */}
     </article>
   );
 }

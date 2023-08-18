@@ -10,7 +10,7 @@ export default function Login({setIsLoggedIn}) {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const container = useRef(null)
+  const container = useRef(null) 
 
 
   useEffect(() => {
@@ -38,12 +38,12 @@ export default function Login({setIsLoggedIn}) {
   };
 
   return (
-    
+    <article className="login_Parent">
     <Form className="login_Container" onSubmit={loginSubmit}>
       
+      <div className="reflect_Login_Page"> REFLECT </div>
       <fieldset>
       <div className="login_gif" ref={container}></div>
-        <div className="reflect"> REFLECT </div>
         <div className="login_functions">
         <FormGroup>
           <Label className="login_Email" for="email">EMAIL:</Label>
@@ -63,5 +63,6 @@ export default function Login({setIsLoggedIn}) {
       </fieldset>
 
     </Form>
+    </article>
   );
 }

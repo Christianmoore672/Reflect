@@ -24,7 +24,7 @@ export default function Register({setIsLoggedIn}) {
     if (password && password !== confirmPassword) {
       alert("Passwords don't match. Do better.");
 
-    } else {
+    } else { 
       const userProfile = { Name, email, ImageUrl};
       register(userProfile, password)
         .then(() => {
